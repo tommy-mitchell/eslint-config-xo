@@ -42,6 +42,16 @@ Add to the `extends` section of your `XO` config:
 "extends": ["@tommy-mitchell/xo", "@tommy-mitchell/xo/tailwind"],
 ```
 
+### VS Code
+
+Add the following to your `settings.json`:
+
+```jsonc
+"xo.enable": true,
+"xo.format.enable": true,
+"xo.overrideSeverity": "warn",
+```
+
 ## Related
 
 - [XO (VS Code Extension)](https://marketplace.visualstudio.com/items?itemName=samverschueren.linter-xo) - Linter for XO.
