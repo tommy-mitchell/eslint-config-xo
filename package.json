@@ -1,0 +1,49 @@
+{
+	"name": "@tommy-mitchell/eslint-config-xo",
+	"version": "0.0.0",
+	"description": "Personal config for XO.",
+	"keywords": [
+		"nodejs",
+		"config",
+		"xo"
+	],
+	"license": "MIT",
+	"repository": "tommy-mitchell/eslint-config-xo",
+	"author": {
+		"name": "Tommy Mitchell",
+		"url": "https://tommymitchell.io"
+	},
+	"sideEffects": false,
+	"files": [
+		"index.js",
+		"react.js",
+		"tailwind.js",
+		"helpers.js"
+	],
+	"engines": {
+		"node": ">=18"
+	},
+	"scripts": {
+		"lint": "xo",
+		"format": "dprint fmt && xo --fix"
+	},
+	"peerDependencies": {
+		"dprint": "^0.45.0",
+		"react": "^18.0.0",
+		"tailwindcss": "^3.4.0",
+		"xo": "^0.57.0"
+	},
+	"dependencies": {
+		"@phaphoso/eslint-plugin-dprint": "^0.5.2",
+		"eslint-config-xo-react": "^0.27.0",
+		"eslint-plugin-jsx-a11y": "^6.8.0",
+		"eslint-plugin-react": "^7.33.2",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-tailwindcss": "^3.14.2"
+	},
+	"devDependencies": {
+		"@tommy-mitchell/dprint-config": "^0.1.0",
+		"dprint": "^0.45.0",
+		"xo": "^0.57.0"
+	}
+}

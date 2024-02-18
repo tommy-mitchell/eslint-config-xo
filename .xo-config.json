@@ -1,0 +1,7 @@
+{
+	"extends": ["./index.js"],
+	"rules": {
+		"import/no-anonymous-default-export": "off",
+		"unicorn/prefer-module": "off"
+	}
+}
