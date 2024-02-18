@@ -5,14 +5,14 @@ Personal config for [`XO`](https://github.com/xojs/xo). Recommended to be used w
 ## Install
 
 ```sh
-npm install --save-dev @tommy-mitchell/xo-config xo @tommy-mitchell/dprint-config dprint
+npm install --save-dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprint-config dprint
 ```
 
 <details>
 <summary>Other Package Managers</summary>
 
 ```sh
-yarn add --dev @tommy-mitchell/xo-config xo @tommy-mitchell/dprint-config dprint
+yarn add --dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprint-config dprint
 ```
 
 </details>
