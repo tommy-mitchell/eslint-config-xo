@@ -1,6 +1,6 @@
 "use strict";
 
-const { importOrder } = require("./helpers.js");
+const { importOrder, preventAbbreviations } = require("./helpers.js");
 
 module.exports = {
 	extends: ["plugin:@phaphoso/dprint/disable-conflict-rules"],
@@ -16,6 +16,15 @@ module.exports = {
 			ignoreConsecutiveComments: true,
 		}],
 		"import/order": ["error", importOrder],
+		"unicorn/prevent-abbreviations": [
+			"error",
+			preventAbbreviations({
+				pkg: false,
+				args: false,
+				req: false,
+				res: false,
+			}),
+		],
 	},
 	overrides: [{
 		files: "**/*.{ts,cts,mts,tsx}",
@@ -26,6 +35,8 @@ module.exports = {
 			"n/file-extension-in-import": ["error", "always", { ".ts": "always", ".tsx": "always" }],
 			// https://github.com/xojs/eslint-config-xo-typescript/blob/v2.0.0/index.js#L707
 			"@typescript-eslint/prefer-regexp-exec": "off",
+			// Conflicts with dprint
+			"@typescript-eslint/space-infix-ops": "off",
 		},
 	}],
 };
