@@ -1,6 +1,6 @@
 {
 	"name": "@tommy-mitchell/eslint-config-xo",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "Personal config for XO.",
 	"keywords": [
 		"nodejs",
@@ -34,9 +34,15 @@
 		"xo": "0.x"
 	},
 	"peerDependenciesMeta": {
-		"dprint": { "optional": true },
-		"react": { "optional": true },
-		"tailwindcss": { "optional": true }
+		"dprint": {
+			"optional": true
+		},
+		"react": {
+			"optional": true
+		},
+		"tailwindcss": {
+			"optional": true
+		}
 	},
 	"dependencies": {
 		"@phaphoso/eslint-plugin-dprint": "^0.5.2",
