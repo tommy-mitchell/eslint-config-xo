@@ -11,6 +11,8 @@ npm install --save-dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprin
 <details>
 <summary>Other Package Managers</summary>
 
+<br />
+
 ```sh
 yarn add --dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprint-config dprint
 ```
