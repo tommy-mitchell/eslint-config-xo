@@ -22,6 +22,7 @@ module.exports = {
 				args: false,
 				req: false,
 				res: false,
+				prop: false,
 				props: false,
 				ref: false,
 			}),
