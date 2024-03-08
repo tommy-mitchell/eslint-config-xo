@@ -22,6 +22,8 @@ module.exports = {
 				args: false,
 				req: false,
 				res: false,
+				props: false,
+				ref: false,
 			}),
 		],
 	},
