@@ -10,19 +10,21 @@ npm install --save-dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprin
 
 <details>
 <summary>Other Package Managers</summary>
-
-<br />
+<p>
 
 ```sh
 yarn add --dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprint-config dprint
 ```
 
+</p>
 </details>
 
 ### Peer Dependencies
 
 - [xo](https://github.com/xojs/xo) - JavaScript/TypeScript linter (ESLint wrapper) with great defaults.
-- [dprint](https://github.com/dprint/dprint) - Pluggable and configurable code formatting platform written in Rust.
+- [dprint](https://github.com/dprint/dprint) (*Optional*) - Pluggable and configurable code formatting platform written in Rust.
+- [react](https://react.dev) (*Optional*) - The library for web and native user interfaces.
+- [tailwindcss](https://tailwindcss.com) (*Optional*) - A utility-first CSS framework for rapid UI development.
 
 ## Usage
 
@@ -30,12 +32,25 @@ Add to the `extends` section of your `XO` config:
 
 ```jsonc
 "extends": ["@tommy-mitchell/xo"],
+"extensions": ["json"],
+```
+
+### dprint
+
+```jsonc
+"extends": ["@tommy-mitchell/xo", "@tommy-mitchell/xo/dprint"],
 ```
 
 ### React
 
 ```jsonc
 "extends": ["@tommy-mitchell/xo", "@tommy-mitchell/xo/react"],
+```
+
+#### React + dprint
+
+```jsonc
+"extends": ["@tommy-mitchell/xo", "@tommy-mitchell/xo/react", "@tommy-mitchell/xo/dprint"],
 ```
 
 ### Tailwind CSS

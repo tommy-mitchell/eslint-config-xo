@@ -1,13 +1,17 @@
 "use strict";
-const { importOrder } = require("./helpers.js");
 
 module.exports = {
 	extends: [
 		"xo-react",
+		"plugin:react/jsx-runtime",
 		"plugin:jsx-a11y/recommended",
 	],
+	plugins: ["react-refresh"],
 	rules: {
 		"react/no-array-index-key": "warn",
+		"react-refresh/only-export-components": ["warn", {
+			allowConstantExport: true,
+		}],
 		"unicorn/filename-case": ["error", {
 			cases: {
 				camelCase: true,
@@ -15,16 +19,9 @@ module.exports = {
 				pascalCase: true,
 			},
 		}],
-		"import/order": ["error", {
-			...importOrder,
-			pathGroups: [{
-				pattern: "@{assets|constants|components|content|providers|helpers|hooks|utils}/**",
-				group: "internal",
-			}],
-		}],
 	},
 	overrides: [{
-		files: "src/constants/**/*.{ts,cts,mts,tsx}",
+		files: ["src/constants/**/*.{ts,cts,mts,tsx}", "**/constants.{ts,cts,mts,tsx}"],
 		rules: {
 			"@typescript-eslint/naming-convention": "off",
 		},

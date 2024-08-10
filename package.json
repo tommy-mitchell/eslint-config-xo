@@ -7,25 +7,43 @@
 		"config",
 		"xo"
 	],
-	"license": "MIT",
 	"repository": "tommy-mitchell/eslint-config-xo",
+	"license": "MIT",
 	"author": {
 		"name": "Tommy Mitchell",
 		"url": "https://tommymitchell.io"
 	},
 	"sideEffects": false,
 	"files": [
+		"dprint.js",
 		"index.js",
 		"react.js",
-		"tailwind.js",
-		"helpers.js"
+		"tailwind.js"
 	],
-	"engines": {
-		"node": ">=18"
-	},
 	"scripts": {
+		"format": "dprint fmt && xo --fix",
 		"lint": "xo",
-		"format": "dprint fmt && xo --fix"
+		"test": "ava"
+	},
+	"dependencies": {
+		"eslint-config-xo-react": "^0.27.0",
+		"eslint-plugin-dprint-integration": "^0.3.0",
+		"eslint-plugin-jsx-a11y": "^6.9.0",
+		"eslint-plugin-package-json": "^0.15.2",
+		"eslint-plugin-react": "^7.35.0",
+		"eslint-plugin-react-hooks": "^4.6.2",
+		"eslint-plugin-react-refresh": "^0.4.9",
+		"eslint-plugin-readable-tailwind": "^1.5.3",
+		"eslint-plugin-simple-import-sort": "^12.1.1",
+		"eslint-plugin-tailwindcss": "^3.17.4",
+		"jsonc-eslint-parser": "^2.4.0"
+	},
+	"devDependencies": {
+		"@tommy-mitchell/dprint-config": "^0.2.0",
+		"ava": "^6.1.3",
+		"dprint": "0.x",
+		"execa": "^9.3.0",
+		"xo": "0.x"
 	},
 	"peerDependencies": {
 		"dprint": "0.x",
@@ -44,17 +62,7 @@
 			"optional": true
 		}
 	},
-	"dependencies": {
-		"@phaphoso/eslint-plugin-dprint": "^0.5.2",
-		"eslint-config-xo-react": "^0.27.0",
-		"eslint-plugin-jsx-a11y": "^6.8.0",
-		"eslint-plugin-react": "^7.33.2",
-		"eslint-plugin-react-hooks": "^4.6.0",
-		"eslint-plugin-tailwindcss": "^3.14.3"
-	},
-	"devDependencies": {
-		"@tommy-mitchell/dprint-config": "^0.1.1",
-		"dprint": "0.x",
-		"xo": "0.x"
+	"engines": {
+		"node": "^18.18 || ^20.8 || >=21"
 	}
 }
