@@ -29,13 +29,5 @@ module.exports = {
 			// https://github.com/xojs/eslint-config-xo-typescript/blob/v2.0.0/index.js#L707
 			"@typescript-eslint/prefer-regexp-exec": "off",
 		},
-	}, {
-		files: ["**/package.json"],
-		extends: ["plugin:package-json/recommended"],
-		plugins: ["package-json"],
-		parser: "jsonc-eslint-parser",
-		rules: {
-			"package-json/repository-shorthand": ["error", { form: "shorthand" }],
-		},
 	}],
 };

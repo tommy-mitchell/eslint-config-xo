@@ -5,7 +5,7 @@ import { $ } from "execa";
 const fixtureFiles = await fs.readdir(new URL("fixtures", import.meta.url), { recursive: true });
 const fixtures = fixtureFiles.filter(file => file.split(".")[0].endsWith("fixture"));
 
-fixtures.push("package-json/package.json");
+// fixtures.push("package-json/package.json");
 
 for (const fixture of fixtures) {
 	test(`lints and fixes ${fixture}`, async t => {

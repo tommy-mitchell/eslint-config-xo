@@ -2,7 +2,6 @@
 	"$schema": "https://json.schemastore.org/eslintrc.json",
 	"extends": ["./index.js", "./dprint.js"],
 	"ignores": ["test/fixtures"],
-	"extensions": ["json"],
 	"rules": {
 		"import/no-anonymous-default-export": "off",
 		"unicorn/prefer-module": "off"
