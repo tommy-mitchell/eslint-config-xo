@@ -32,7 +32,6 @@ Add to the `extends` section of your `XO` config:
 
 ```jsonc
 "extends": ["@tommy-mitchell/xo"],
-"extensions": ["json"],
 ```
 
 ### dprint
