@@ -12,7 +12,7 @@ for (const fixture of fixtures) {
 		const fixtureFolder = new URL(`fixtures/${fixture}/..`, import.meta.url).pathname;
 		const inputFile = new URL(`fixtures/${fixture}`, import.meta.url);
 
-		const { stdout, exitCode } = await $({ inputFile })`xo --fix --stdin --stdin-filename=${fixture} --cwd=${fixtureFolder}`;
+		const { exitCode, stdout } = await $({ inputFile })`xo --fix --stdin --stdin-filename=${fixture} --cwd=${fixtureFolder}`;
 
 		t.snapshot(stdout);
 		t.is(exitCode, 0);

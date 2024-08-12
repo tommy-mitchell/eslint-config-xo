@@ -9,6 +9,7 @@ module.exports = {
 			indent: "tab",
 			printWidth: 120,
 		}],
+		"readable-tailwind/no-duplicate-classes": "warn",
 		"readable-tailwind/no-unnecessary-whitespace": "warn",
 		"readable-tailwind/sort-classes": "warn",
 		"tailwindcss/classnames-order": "off",

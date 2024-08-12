@@ -6,12 +6,11 @@ module.exports = {
 		"plugin:react/jsx-runtime",
 		"plugin:jsx-a11y/recommended",
 	],
-	plugins: ["react-refresh"],
+	plugins: ["react-refresh", "sort-react-dependency-arrays"],
 	rules: {
 		"react/no-array-index-key": "warn",
-		"react-refresh/only-export-components": ["warn", {
-			allowConstantExport: true,
-		}],
+		"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+		"sort-react-dependency-arrays/sort": "error",
 		"unicorn/filename-case": ["error", {
 			cases: {
 				camelCase: true,

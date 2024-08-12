@@ -4,6 +4,17 @@
 	"ignores": ["test/fixtures"],
 	"rules": {
 		"import/no-anonymous-default-export": "off",
+		"perfectionist/sort-objects": ["error", {
+			"type": "natural",
+			"customGroups": {
+				"//": ["https://github.com/eslint/eslintrc/blob/v3.1.0/conf/config-schema.js"],
+				"///": ["was going to use eslint order, but doing custom"],
+				"eslintrc": ["$schema", "extends", "plugins"],
+				"eslintrc2": ["files", "settings"],
+				"eslintrc3": ["rules"]
+			},
+			"groups": ["eslintrc", "eslintrc2", "eslintrc3", "unknown"]
+		}],
 		"unicorn/prefer-module": "off"
 	}
 }
