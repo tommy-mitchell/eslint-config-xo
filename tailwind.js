@@ -7,6 +7,7 @@ module.exports = {
 		"readable-tailwind/multiline": ["warn", {
 			group: "newLine",
 			indent: "tab",
+			preferSingleLine: true,
 			printWidth: 120,
 		}],
 		"readable-tailwind/no-duplicate-classes": "warn",
