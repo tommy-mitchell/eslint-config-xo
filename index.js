@@ -2,6 +2,12 @@
 
 module.exports = {
 	plugins: ["perfectionist", "simple-import-sort"],
+	settings: {
+		perfectionist: {
+			partitionByComment: "(group) *",
+			type: "natural",
+		},
+	},
 	rules: {
 		// https://github.com/xojs/eslint-config-xo/blob/v0.44.0/index.js#L304
 		"capitalized-comments": "off",
@@ -10,11 +16,11 @@ module.exports = {
 		// https://github.com/xojs/eslint-config-xo/blob/v0.44.0/index.js#L186
 		"no-warning-comments": ["warn", { decoration: ["/", "*"] }],
 		"object-shorthand": "off",
-		"perfectionist/sort-array-includes": ["error", { type: "natural" }],
-		"perfectionist/sort-maps": ["error", { type: "natural" }],
-		"perfectionist/sort-objects": ["error", { type: "natural" }],
+		"perfectionist/sort-array-includes": "error",
+		"perfectionist/sort-maps": "error",
+		"perfectionist/sort-objects": "error",
 		// TODO: doesn't play nice with unicorn/switch-case-braces: https://github.com/azat-io/eslint-plugin-perfectionist/issues/54#issuecomment-2268283085
-		"perfectionist/sort-switch-case": ["error", { type: "natural" }],
+		"perfectionist/sort-switch-case": "error",
 		"simple-import-sort/exports": "error",
 		"simple-import-sort/imports": ["error", {
 			groups: [["^\\u0000", "^node:", "^react", "^react-dom", "^@?\\w", "^", "^\\."]],
@@ -32,11 +38,11 @@ module.exports = {
 			"@typescript-eslint/no-confusing-void-expression": ["error", { ignoreArrowShorthand: true }],
 			// https://github.com/xojs/eslint-config-xo-typescript/blob/v2.0.0/index.js#L707
 			"@typescript-eslint/prefer-regexp-exec": "off",
-			"perfectionist/sort-enums": ["error", { type: "natural" }],
-			"perfectionist/sort-interfaces": ["error", { type: "natural" }],
-			"perfectionist/sort-intersection-types": ["error", { type: "natural" }],
-			"perfectionist/sort-object-types": ["error", { type: "natural" }],
-			"perfectionist/sort-union-types": ["error", { type: "natural" }],
+			"perfectionist/sort-enums": ["error", { forceNumericSort: true }],
+			"perfectionist/sort-interfaces": "error",
+			"perfectionist/sort-intersection-types": "error",
+			"perfectionist/sort-object-types": "error",
+			"perfectionist/sort-union-types": "error",
 		},
 	}],
 };

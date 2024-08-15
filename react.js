@@ -24,5 +24,17 @@ module.exports = {
 		rules: {
 			"@typescript-eslint/naming-convention": "off",
 		},
+	}, {
+		files: "**/*.{ts,cts,mts,tsx}",
+		rules: {
+			"perfectionist/sort-interfaces": ["error", {
+				customGroups: { callback: "on*" },
+				groups: ["unknown", "callback"],
+			}],
+			"perfectionist/sort-object-types": ["error", {
+				customGroups: { callback: "on*" },
+				groups: ["unknown", "callback"],
+			}],
+		},
 	}],
 };

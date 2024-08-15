@@ -22,6 +22,8 @@ export default function Search(query: string, zipCode: number): Promise<any>
         engine:  "google_maps",
         q:       query,
         ll:      coordinates,
+
+        // (group) keys
         api_key: PRIVATE_KEY
     };
 
