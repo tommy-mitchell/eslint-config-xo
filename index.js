@@ -23,7 +23,7 @@ module.exports = {
 		"perfectionist/sort-switch-case": "error",
 		"simple-import-sort/exports": "error",
 		"simple-import-sort/imports": ["error", {
-			groups: [["^\\u0000", "^node:", "^react", "^react-dom", "^@?\\w", "^", "^\\."]],
+			groups: [["^\\u0000", "^node:", "^@?\\w", "^", "^\\."]],
 		}],
 		"unicorn/prefer-regexp-test": "off",
 		"unicorn/prevent-abbreviations": "off",
@@ -42,7 +42,14 @@ module.exports = {
 			"perfectionist/sort-interfaces": "error",
 			"perfectionist/sort-intersection-types": "error",
 			"perfectionist/sort-object-types": "error",
-			"perfectionist/sort-union-types": "error",
+			"perfectionist/sort-union-types": ["error", { groups: ["unknown", "keyword", "nullish"] }],
+		},
+	}, {
+		files: "test/**/*.*",
+		rules: {
+			"simple-import-sort/imports": ["error", {
+				groups: [["^\\u0000", "^node:", "^ava", "^@?\\w", "^", "^\\."]],
+			}],
 		},
 	}],
 };

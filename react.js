@@ -10,6 +10,9 @@ module.exports = {
 	rules: {
 		"react/no-array-index-key": "warn",
 		"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+		"simple-import-sort/imports": ["error", {
+			groups: [["^\\u0000", "^node:", "^react", "^react-dom", "^@?\\w", "^", "^\\.", "^.+\\.s?css$"]],
+		}],
 		"sort-react-dependency-arrays/sort": "error",
 		"unicorn/filename-case": ["error", {
 			cases: {
