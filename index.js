@@ -1,18 +1,16 @@
-"use strict";
+import perfectionist from "eslint-plugin-perfectionist";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
 
-module.exports = {
-	plugins: ["perfectionist", "simple-import-sort"],
-	settings: {
-		perfectionist: {
-			partitionByComment: "(group) *",
-			type: "natural",
-		},
+export default [{
+	plugins: {
+		perfectionist,
+		"simple-import-sort": simpleImportSort,
 	},
 	rules: {
 		// https://github.com/xojs/eslint-config-xo/blob/v0.44.0/index.js#L304
 		"capitalized-comments": "off",
-		"import/extensions": "off",
-		"import/order": "off",
+		"import-x/order": "off",
+		// 'import-x/extensions': 'off',
 		// https://github.com/xojs/eslint-config-xo/blob/v0.44.0/index.js#L186
 		"no-warning-comments": ["warn", { decoration: ["/", "*"] }],
 		"object-shorthand": "off",
@@ -23,33 +21,40 @@ module.exports = {
 		"perfectionist/sort-switch-case": "error",
 		"simple-import-sort/exports": "error",
 		"simple-import-sort/imports": ["error", {
-			groups: [["^\\u0000", "^node:", "^@?\\w", "^", "^\\."]],
+			groups: [[String.raw`^\u0000`, "^node:", String.raw`^@?\w`, "^", String.raw`^\.`]],
 		}],
 		"unicorn/prefer-regexp-test": "off",
 		"unicorn/prevent-abbreviations": "off",
 	},
-	overrides: [{
-		files: "**/*.{ts,cts,mts,tsx}",
-		settings: {
-			n: { typescriptExtensionMap: [[".ts", ".ts"], [".tsx", ".tsx"]] },
+	settings: {
+		perfectionist: {
+			partitionByComment: "(group) *",
+			type: "natural",
 		},
-		rules: {
-			// https://github.com/xojs/eslint-config-xo-typescript/blob/v2.0.0/index.js#L384
-			"@typescript-eslint/no-confusing-void-expression": ["error", { ignoreArrowShorthand: true }],
-			// https://github.com/xojs/eslint-config-xo-typescript/blob/v2.0.0/index.js#L707
-			"@typescript-eslint/prefer-regexp-exec": "off",
-			"perfectionist/sort-enums": ["error", { forceNumericSort: true }],
-			"perfectionist/sort-interfaces": "error",
-			"perfectionist/sort-intersection-types": "error",
-			"perfectionist/sort-object-types": "error",
-			"perfectionist/sort-union-types": ["error", { groups: ["unknown", "keyword", "nullish"] }],
-		},
-	}, {
-		files: "test/**/*.*",
-		rules: {
-			"simple-import-sort/imports": ["error", {
-				groups: [["^\\u0000", "^node:", "^ava", "^@?\\w", "^", "^\\."]],
-			}],
-		},
-	}],
-};
+	},
+}, {
+	files: "**/*.{ts,cts,mts,tsx}",
+	rules: {
+		// https://github.com/xojs/eslint-config-xo-typescript/blob/v2.0.0/index.js#L384
+		"@typescript-eslint/no-confusing-void-expression": ["error", { ignoreArrowShorthand: true }],
+		// https://github.com/xojs/eslint-config-xo-typescript/blob/v2.0.0/index.js#L707
+		"@typescript-eslint/prefer-regexp-exec": "off",
+		"perfectionist/sort-enums": ["error", { forceNumericSort: true }],
+		"perfectionist/sort-interfaces": "error",
+		"perfectionist/sort-intersection-types": "error",
+		"perfectionist/sort-object-types": "error",
+		"perfectionist/sort-union-types": ["error", { groups: ["unknown", "keyword", "nullish"] }],
+	},
+	settings: {
+		n: { typescriptExtensionMap: [[".ts", ".ts"], [".tsx", ".tsx"]] },
+	},
+}, {
+	files: "test/**/*.*",
+	rules: {
+		"simple-import-sort/imports": ["error", {
+			groups: [[String.raw`^\u0000`, "^node:", "^ava", String.raw`^@?\w`, "^", String.raw`^\.`]],
+		}],
+	},
+}];
+
+// TODO: update perfectionist, revert tailwind

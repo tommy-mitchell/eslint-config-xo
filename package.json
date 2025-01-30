@@ -14,6 +14,7 @@
 		"url": "https://tommymitchell.io"
 	},
 	"sideEffects": false,
+	"type": "module",
 	"files": [
 		"dprint.js",
 		"index.js",
@@ -26,28 +27,24 @@
 		"test": "ava"
 	},
 	"dependencies": {
-		"eslint-config-xo-react": "^0.27.0",
-		"eslint-plugin-dprint-integration": "^0.3.0",
-		"eslint-plugin-jsx-a11y": "^6.9.0",
+		"eslint-config-xo-react": "^0.28.0",
+		"eslint-plugin-jsx-a11y": "^6.10.2",
 		"eslint-plugin-perfectionist": "^3.2.0",
-		"eslint-plugin-react": "^7.35.0",
-		"eslint-plugin-react-hooks": "^4.6.2",
-		"eslint-plugin-react-refresh": "^0.4.9",
+		"eslint-plugin-react-refresh": "^0.4.18",
 		"eslint-plugin-readable-tailwind": "beta",
 		"eslint-plugin-simple-import-sort": "^12.1.1",
-		"eslint-plugin-sort-react-dependency-arrays": "^1.0.0",
-		"eslint-plugin-tailwindcss": "^3.17.4"
+		"eslint-plugin-sort-react-dependency-arrays": "^1.0.0"
 	},
 	"devDependencies": {
-		"@tommy-mitchell/dprint-config": "^0.2.0",
-		"ava": "^6.1.3",
+		"@tommy-mitchell/dprint-config": "^0.4.0",
+		"ava": "^6.2.0",
 		"dprint": "0.x",
-		"execa": "^9.3.0",
-		"xo": "0.x"
+		"execa": "^9.5.2",
+		"xo": "npm:@spence-s/flat-xo@latest"
 	},
 	"peerDependencies": {
 		"dprint": "0.x",
-		"react": "18.x",
+		"react": "19.x",
 		"tailwindcss": "4.x",
 		"xo": "0.x"
 	},

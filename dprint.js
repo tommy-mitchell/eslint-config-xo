@@ -1,12 +1,8 @@
-"use strict";
+import stylistic from "@stylistic/eslint-plugin";
 
-module.exports = {
-	extends: ["plugin:dprint-integration/disable-conflict"],
-	overrides: [{
-		files: "**/*.{ts,cts,mts,tsx}",
-		rules: {
-			"@typescript-eslint/object-curly-spacing": "off",
-			"@typescript-eslint/space-infix-ops": "off",
-		},
-	}],
-};
+const disabledRules = Object.fromEntries(Object.keys(stylistic.rules).map(rule => [`@stylistic/${rule}`, "off"]));
+
+export default [
+	stylistic.configs["disable-legacy"],
+	{ rules: disabledRules },
+];
