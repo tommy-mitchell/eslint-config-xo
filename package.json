@@ -15,12 +15,10 @@
 	},
 	"sideEffects": false,
 	"type": "module",
-	"files": [
-		"dprint.js",
-		"index.js",
-		"react.js",
-		"tailwind.js"
-	],
+	"files": ["src"],
+	"exports": {
+		"default": "./src/index.js"
+	},
 	"scripts": {
 		"format": "dprint fmt && xo --fix",
 		"lint": "xo",

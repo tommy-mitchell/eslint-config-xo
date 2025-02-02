@@ -1,9 +1,8 @@
-import dprintConfig from "./dprint.js";
-import config from "./index.js";
+import * as configs from "./src/index.js";
 
 export default [
-	...config,
-	...dprintConfig,
+	...configs.xo,
+	...configs.dprint,
 	{
 		ignores: ["test/fixtures"],
 		react: true,
@@ -12,3 +11,5 @@ export default [
 		},
 	},
 ];
+
+// TODO: raise issue on vscode plugin to add source.fixAll.xo
