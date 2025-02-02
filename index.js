@@ -55,6 +55,16 @@ export default [{
 			groups: [[String.raw`^\u0000`, "^node:", "^ava", String.raw`^@?\w`, "^", String.raw`^\.`]],
 		}],
 	},
+}, {
+	files: [
+		"**/xo.config.js",
+		"**/xo.config.ts",
+		"**/eslint.config.js",
+		"**/eslint.config.ts",
+	],
+	rules: {
+		"import-x/no-anonymous-default-export": "off",
+	},
 }];
 
 // TODO: update perfectionist, revert tailwind
