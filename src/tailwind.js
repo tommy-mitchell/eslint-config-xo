@@ -1,7 +1,7 @@
 import eslintPluginReadableTailwind from "eslint-plugin-readable-tailwind";
 import tailwind from "eslint-plugin-tailwindcss";
 
-export default [tailwind.configs["flat/recommended"], {
+export default [...tailwind.configs["flat/recommended"], {
 	plugins: {
 		"readable-tailwind": eslintPluginReadableTailwind,
 	},
