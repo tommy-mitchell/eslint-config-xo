@@ -9,8 +9,8 @@ export default [{
 	rules: {
 		// https://github.com/xojs/eslint-config-xo/blob/v0.44.0/index.js#L304
 		"capitalized-comments": "off",
+		"import-x/extensions": "off",
 		"import-x/order": "off",
-		// 'import-x/extensions': 'off',
 		// https://github.com/xojs/eslint-config-xo/blob/v0.44.0/index.js#L186
 		"no-warning-comments": ["warn", { decoration: ["/", "*"] }],
 		"object-shorthand": "off",

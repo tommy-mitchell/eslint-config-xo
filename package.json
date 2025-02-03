@@ -39,6 +39,7 @@
 		"ava": "^6.2.0",
 		"dprint": "0.x",
 		"execa": "^9.5.2",
+		"tempy": "^3.1.0",
 		"xo": "npm:@spence-s/flat-xo@latest"
 	},
 	"peerDependencies": {
