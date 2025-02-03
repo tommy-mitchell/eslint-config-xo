@@ -69,5 +69,3 @@ export default [{
 		"import-x/no-anonymous-default-export": "off",
 	},
 }];
-
-// TODO: update perfectionist, revert tailwind
