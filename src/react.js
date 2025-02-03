@@ -3,12 +3,12 @@ import react from "eslint-plugin-react";
 import reactRefresh from "eslint-plugin-react-refresh";
 import sortReactDependencyArrays from "eslint-plugin-sort-react-dependency-arrays";
 
-const plugins = [
+const configs = [
 	react.configs.flat["jsx-runtime"],
 	jsxA11y.flatConfigs.recommended,
 ];
 
-export default [...plugins, {
+export default [...configs, {
 	plugins: {
 		"react-refresh": reactRefresh,
 		"sort-react-dependency-arrays": sortReactDependencyArrays,
@@ -17,7 +17,16 @@ export default [...plugins, {
 		"react/no-array-index-key": "warn",
 		"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
 		"simple-import-sort/imports": ["error", {
-			groups: [[String.raw`^\u0000`, "^node:", "^react", "^react-dom", String.raw`^@?\w`, "^", String.raw`^\.`, String.raw`^.+\.s?css$`]],
+			groups: [[
+				String.raw`^\u0000`,
+				"^node:",
+				"^react",
+				"^react-dom",
+				String.raw`^@?\w`,
+				"^",
+				String.raw`^\.`,
+				String.raw`^.+\.s?css$`,
+			]],
 		}],
 		"sort-react-dependency-arrays/sort": "error",
 		"unicorn/filename-case": ["error", {

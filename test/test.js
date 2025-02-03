@@ -27,7 +27,7 @@ for (const fixture of fixtures) {
 
 		const { all: lintErrors, exitCode } = await $$`xo --fix ${tempFixture}`;
 		const fixed = await fs.readFile(tempFixture, "utf8");
-		const errorCount = Number(lintErrors.match(/\d+(?= errors$)/m).at(0));
+		const errorCount = Number(lintErrors.match(/\d+(?= errors$)/m)?.at(0));
 
 		t.snapshot({ errorCount, exitCode, fixed, lintErrors });
 	});

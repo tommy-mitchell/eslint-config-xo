@@ -1,5 +1,6 @@
 import stylistic from "@stylistic/eslint-plugin";
 
+// TODO: eslint unicorn rule proposal
 const allowedRules = new Set(["padding-line-between-statements"]);
 const disabledRules = Object.fromEntries(
 	Object.keys(stylistic.rules)
