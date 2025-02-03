@@ -1,11 +1,12 @@
-"use strict";
+import eslintPluginReadableTailwind from "eslint-plugin-readable-tailwind";
+import tailwind from "eslint-plugin-tailwindcss";
 
-module.exports = {
-	extends: ["plugin:tailwindcss/recommended"],
-	plugins: ["readable-tailwind"],
+export default [...tailwind.configs["flat/recommended"], {
+	plugins: {
+		"readable-tailwind": eslintPluginReadableTailwind,
+	},
 	rules: {
 		"readable-tailwind/multiline": ["warn", {
-			group: "newLine",
 			indent: "tab",
 			preferSingleLine: true,
 			printWidth: 120,
@@ -18,4 +19,4 @@ module.exports = {
 			callees: ["classnames", "clsx", "ctl", "cva", "tv", "tva", "tw", "twMerge", "cn", "cnx"],
 		}],
 	},
-};
+}];

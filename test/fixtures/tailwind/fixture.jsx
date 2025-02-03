@@ -7,10 +7,10 @@ import VisuallyHidden from "@/components/VisuallyHidden";
 import { secondsToMs } from "./utils.ts";
 
 /** Waits to start typing. */
-const START_ITEM = [" ", secondsToMs(2)]; // eslint-disable-line @typescript-eslint/naming-convention
+const START_ITEM = [" ", secondsToMs(2)];
 
 /** Displays the cursor for a brief moment. */
-const EMPTY_ITEM = [" ", secondsToMs(0.75)]; // eslint-disable-line @typescript-eslint/naming-convention
+const EMPTY_ITEM = [" ", secondsToMs(0.75)];
 
 const parseSequence = (sequence, delay) =>
 	sequence.flatMap(item => {

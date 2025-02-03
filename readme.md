@@ -5,12 +5,27 @@ Personal config for [`XO`](https://github.com/xojs/xo). Recommended to be used w
 ## Install
 
 ```sh
-npm install --save-dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprint-config dprint
+npm install --save-dev @tommy-mitchell/eslint-config-xo xo
 ```
 
 <details>
 <summary>Other Package Managers</summary>
 <p>
+
+```sh
+yarn add --dev @tommy-mitchell/eslint-config-xo xo
+```
+
+</p>
+</details>
+
+<details>
+<summary>With dprint</summary>
+<p>
+
+```sh
+npm install --save-dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprint-config dprint
+```
 
 ```sh
 yarn add --dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprint-config dprint
@@ -26,36 +41,19 @@ yarn add --dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprint-config
 - [react](https://react.dev) (*Optional*) - The library for web and native user interfaces.
 - [tailwindcss](https://tailwindcss.com) (*Optional*) - A utility-first CSS framework for rapid UI development.
 
-## Usage
+## Usage (Flat Config)
 
-Add to the `extends` section of your `XO` config:
+```js
+// xo.config.js
+import * as configs from "@tommy-mitchell/eslint-config-xo";
 
-```jsonc
-"extends": ["@tommy-mitchell/xo"],
-```
-
-### dprint
-
-```jsonc
-"extends": ["@tommy-mitchell/xo", "@tommy-mitchell/xo/dprint"],
-```
-
-### React
-
-```jsonc
-"extends": ["@tommy-mitchell/xo", "@tommy-mitchell/xo/react"],
-```
-
-#### React + dprint
-
-```jsonc
-"extends": ["@tommy-mitchell/xo", "@tommy-mitchell/xo/react", "@tommy-mitchell/xo/dprint"],
-```
-
-### Tailwind CSS
-
-```jsonc
-"extends": ["@tommy-mitchell/xo", "@tommy-mitchell/xo/tailwind"],
+export default [
+	...configs.xo,
+	...configs.react, // If using React
+	...configs.tailwind, // If using Tailwind CSS
+	...configs.dprint, // If using dprint (must be last to override stylistic rules)
+	// Plus any overrides
+]
 ```
 
 ### VS Code
@@ -66,6 +64,19 @@ Add the following to your `settings.json`:
 "xo.enable": true,
 "xo.format.enable": true,
 "xo.overrideSeverity": "warn",
+"xo.debounce": 100,
+```
+
+If formatting with `dprint`:
+
+```jsonc
+"[javascript][javascriptreact][typescript][typescriptreact]": {
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "dprint.dprint",
+	"editor.codeActionsOnSave": {
+		"source.fixAll": "explicit", // Will run lint autofixes
+	},
+},
 ```
 
 ## Related
