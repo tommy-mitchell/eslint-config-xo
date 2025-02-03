@@ -4,7 +4,7 @@ export default [
 	...configs.xo,
 	...configs.dprint,
 	{
-		ignores: ["test/fixtures"],
+		ignores: ["test/fixtures/**"],
 		react: true,
 		rules: {
 			"import-x/no-anonymous-default-export": "off",
