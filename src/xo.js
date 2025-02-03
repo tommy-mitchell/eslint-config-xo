@@ -16,7 +16,9 @@ export default [{
 		"object-shorthand": "off",
 		"perfectionist/sort-array-includes": "error",
 		"perfectionist/sort-maps": "error",
+		// maybe: perfectionist/sort-modules
 		"perfectionist/sort-objects": "error",
+		"perfectionist/sort-sets": "error",
 		// TODO: doesn't play nice with unicorn/switch-case-braces: https://github.com/azat-io/eslint-plugin-perfectionist/issues/54#issuecomment-2268283085
 		"perfectionist/sort-switch-case": "error",
 		"simple-import-sort/exports": "error",
@@ -40,6 +42,7 @@ export default [{
 		// https://github.com/xojs/eslint-config-xo-typescript/blob/v2.0.0/index.js#L707
 		"@typescript-eslint/prefer-regexp-exec": "off",
 		"perfectionist/sort-enums": ["error", { forceNumericSort: true }],
+		"perfectionist/sort-heritage-clauses": "error",
 		"perfectionist/sort-interfaces": "error",
 		"perfectionist/sort-intersection-types": "error",
 		"perfectionist/sort-object-types": "error",

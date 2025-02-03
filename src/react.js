@@ -14,8 +14,8 @@ export default [...configs, {
 		"sort-react-dependency-arrays": sortReactDependencyArrays,
 	},
 	rules: {
-		"react/no-array-index-key": "warn",
 		"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+		"react/no-array-index-key": "warn",
 		"simple-import-sort/imports": ["error", {
 			groups: [[
 				String.raw`^\u0000`,

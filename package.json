@@ -28,9 +28,9 @@
 	},
 	"dependencies": {
 		"eslint-plugin-jsx-a11y": "^6.10.2",
-		"eslint-plugin-perfectionist": "^3.2.0",
+		"eslint-plugin-perfectionist": "^4.7.0",
 		"eslint-plugin-react-refresh": "^0.4.18",
-		"eslint-plugin-readable-tailwind": "1.9.0",
+		"eslint-plugin-readable-tailwind": "^1.9.0",
 		"eslint-plugin-simple-import-sort": "^12.1.1",
 		"eslint-plugin-sort-react-dependency-arrays": "^1.0.0",
 		"eslint-plugin-tailwindcss": "^3.18.0"
