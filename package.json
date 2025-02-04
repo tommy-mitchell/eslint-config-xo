@@ -31,10 +31,9 @@
 		"eslint-plugin-jsx-a11y": "^6.10.2",
 		"eslint-plugin-perfectionist": "^4.7.0",
 		"eslint-plugin-react-refresh": "^0.4.18",
-		"eslint-plugin-readable-tailwind": "^1.9.0",
+		"eslint-plugin-readable-tailwind": "beta",
 		"eslint-plugin-simple-import-sort": "^12.1.1",
-		"eslint-plugin-sort-react-dependency-arrays": "^1.0.0",
-		"eslint-plugin-tailwindcss": "^3.18.0"
+		"eslint-plugin-sort-react-dependency-arrays": "^1.0.0"
 	},
 	"devDependencies": {
 		"@stylistic/eslint-plugin": "^3.0.1",
@@ -49,7 +48,7 @@
 	"peerDependencies": {
 		"dprint": "0.x",
 		"react": "19.x",
-		"tailwindcss": "3.x",
+		"tailwindcss": "4.x",
 		"xo": "0.x"
 	},
 	"peerDependenciesMeta": {

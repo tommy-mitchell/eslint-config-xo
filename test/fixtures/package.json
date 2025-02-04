@@ -1,3 +1,7 @@
 {
-    "type": "module"
+    "type": "module",
+    "dependencies": {
+		"tailwindcss": "4.x",
+        "tsx": "4.19.2"
+	}
 }
