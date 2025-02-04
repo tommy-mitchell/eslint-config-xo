@@ -13,6 +13,7 @@ const tempDirectory = temporaryDirectory();
 // fixtures.push("package-json/package.json");
 
 await fs.cp(fixtureDirectory, tempDirectory, { recursive: true });
+await $({ cwd: tempDirectory })`npm install`;
 
 for (const fixture of fixtures) {
 	test(`lints and fixes ${fixture}`, async t => {
