@@ -13,5 +13,3 @@ export default [
 		},
 	},
 ];
-
-// TODO: raise issue on vscode plugin to add source.fixAll.xo

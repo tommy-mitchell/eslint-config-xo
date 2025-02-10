@@ -5,7 +5,7 @@ Personal config for [`XO`](https://github.com/xojs/xo). Recommended to be used w
 ## Install
 
 ```sh
-npm install --save-dev @tommy-mitchell/eslint-config-xo xo
+npm install --save-dev @tommy-mitchell/eslint-config-xo@beta xo@npm:@spence-s/flat-xo@latest
 ```
 
 <details>
@@ -13,7 +13,7 @@ npm install --save-dev @tommy-mitchell/eslint-config-xo xo
 <p>
 
 ```sh
-yarn add --dev @tommy-mitchell/eslint-config-xo xo
+yarn add --dev @tommy-mitchell/eslint-config-xo@beta xo@npm:@spence-s/flat-xo@latest
 ```
 
 </p>
@@ -24,11 +24,11 @@ yarn add --dev @tommy-mitchell/eslint-config-xo xo
 <p>
 
 ```sh
-npm install --save-dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprint-config dprint
+npm install --save-dev @tommy-mitchell/eslint-config-xo@beta xo@npm:@spence-s/flat-xo@latest @tommy-mitchell/dprint-config dprint
 ```
 
 ```sh
-yarn add --dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprint-config dprint
+yarn add --dev @tommy-mitchell/eslint-config-xo@beta xo@npm:@spence-s/flat-xo@latest @tommy-mitchell/dprint-config dprint
 ```
 
 </p>
@@ -50,6 +50,7 @@ import * as configs from "@tommy-mitchell/eslint-config-xo";
 export default [
 	...configs.xo,
 	...configs.react, // If using React
+	...configs.next, // If using Next.js
 	...configs.tailwind, // If using Tailwind CSS
 	...configs.dprint, // If using dprint (must be last to override stylistic rules)
 	// Plus any overrides
@@ -74,7 +75,7 @@ If formatting with `dprint`:
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "dprint.dprint",
 	"editor.codeActionsOnSave": {
-		"source.fixAll": "explicit", // Will run lint autofixes
+		"source.fixAll.xo": "explicit", // Will run lint autofixes
 	},
 },
 ```

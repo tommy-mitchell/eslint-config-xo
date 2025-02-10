@@ -7,6 +7,7 @@ export default [...tailwind.configs["flat/recommended"], {
 	},
 	rules: {
 		"readable-tailwind/multiline": ["warn", {
+			group: "newLine",
 			indent: "tab",
 			preferSingleLine: true,
 			printWidth: 120,
