@@ -38,6 +38,11 @@ export default [...configs, {
 		}],
 	},
 }, {
+	files: ["src/constants/**/*.{ts,cts,mts,tsx}", "**/constants.{ts,cts,mts,tsx}"],
+	rules: {
+		"@typescript-eslint/naming-convention": "off",
+	},
+}, {
 	files: "**/*.{ts,cts,mts,tsx}",
 	rules: {
 		"perfectionist/sort-interfaces": ["error", {
