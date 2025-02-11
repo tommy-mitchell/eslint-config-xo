@@ -9,14 +9,16 @@ const allowedReactRules = new Set([
 ]);
 
 const disabledLegacyRules = Object.fromEntries(
-	Object.keys(stylistic.configs["disable-legacy"].rules)
-		.filter(rule => !allowedReactRules.has(`react/${rule}`))
-		.map(rule => [rule, "off"]),
+	Object.entries(stylistic.configs["disable-legacy"].rules)
+		.filter(([rule]) => !allowedReactRules.has(rule.replace("react/", ""))),
 );
 
-// TODO: eslint unicorn rule proposal
 const allowedRules = new Set([
+	// "multiline-ternary",
+	"no-floating-decimal",
+	"no-mixed-operators",
 	"padding-line-between-statements",
+	"wrap-iife",
 	...allowedReactRules,
 ]);
 

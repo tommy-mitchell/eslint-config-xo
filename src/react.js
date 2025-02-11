@@ -8,13 +8,19 @@ const configs = [
 	jsxA11y.flatConfigs.recommended,
 ];
 
-export default [...configs, {
+export default [{ react: true }, ...configs, {
 	plugins: {
 		"react-refresh": reactRefresh,
 		"sort-react-dependency-arrays": sortReactDependencyArrays,
 	},
 	rules: {
 		"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+		"react/jsx-sort-props": ["error", {
+			callbacksLast: true,
+			noSortAlphabetically: false,
+			reservedFirst: true,
+			shorthandFirst: true,
+		}],
 		"react/no-array-index-key": "warn",
 		"simple-import-sort/imports": ["error", {
 			groups: [[
