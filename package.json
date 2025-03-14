@@ -46,7 +46,7 @@
 		"eslint-plugin-react": "^7.37.4",
 		"execa": "^9.5.2",
 		"tempy": "^3.1.0",
-		"xo": "npm:@spence-s/flat-xo@latest"
+		"xo": "npm:@spence-s/flat-xo@0.0.10"
 	},
 	"peerDependencies": {
 		"dprint": "0.x",
