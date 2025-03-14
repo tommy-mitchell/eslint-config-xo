@@ -28,19 +28,19 @@
 		"test": "ava"
 	},
 	"dependencies": {
-		"@eslint/eslintrc": "^3.2.0",
-		"@next/eslint-plugin-next": "^15.1.6",
+		"@eslint/eslintrc": "^3.3.0",
+		"@next/eslint-plugin-next": "^15.2.2",
 		"eslint-plugin-jsx-a11y": "^6.10.2",
-		"eslint-plugin-perfectionist": "^4.8.0",
+		"eslint-plugin-perfectionist": "^4.10.1",
 		"eslint-plugin-react-refresh": "^0.4.19",
-		"eslint-plugin-readable-tailwind": "^1.9.0",
+		"eslint-plugin-readable-tailwind": "^1.9.1",
 		"eslint-plugin-simple-import-sort": "^12.1.1",
 		"eslint-plugin-sort-react-dependency-arrays": "^1.0.0",
 		"eslint-plugin-tailwindcss": "^3.18.0"
 	},
 	"devDependencies": {
 		"@stylistic/eslint-plugin": "^3.0.1",
-		"@tommy-mitchell/dprint-config": "^0.4.0",
+		"@tommy-mitchell/dprint-config": "^0.5.0",
 		"ava": "^6.2.0",
 		"dprint": "0.x",
 		"eslint-plugin-react": "^7.37.4",

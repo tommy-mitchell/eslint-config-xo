@@ -52,11 +52,11 @@ export default [{ react: true }, ...configs, {
 	files: "**/*.{ts,cts,mts,tsx}",
 	rules: {
 		"perfectionist/sort-interfaces": ["error", {
-			customGroups: { callback: "on*" },
+			customGroups: { callback: "^on[A-Z].*" },
 			groups: ["unknown", "callback"],
 		}],
 		"perfectionist/sort-object-types": ["error", {
-			customGroups: { callback: "on*" },
+			customGroups: { callback: "^on[A-Z].*" },
 			groups: ["unknown", "callback"],
 		}],
 	},
