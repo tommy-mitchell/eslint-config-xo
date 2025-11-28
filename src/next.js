@@ -1,22 +1,8 @@
-import { FlatCompat } from "@eslint/eslintrc";
 import next from "@next/eslint-plugin-next";
+import reactRefresh from "eslint-plugin-react-refresh";
 
-const compat = new FlatCompat({
-	baseDirectory: import.meta.dirname,
-});
-
+/** @type {import('xo').FlatXoConfig} */
 export default [
-	...compat.config(next.configs["core-web-vitals"]),
-	{
-		files: "**/{layout,page}.{jsx,tsx}",
-		rules: {
-			"react-refresh/only-export-components": ["warn", {
-				allowConstantExport: true,
-				allowExportNames: [
-					"metadata",
-					"generateMetadata",
-				],
-			}],
-		},
-	},
+	next.configs["core-web-vitals"],
+	reactRefresh.configs.next,
 ];

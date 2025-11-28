@@ -1,6 +1,7 @@
 import perfectionist from "eslint-plugin-perfectionist";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 
+/** @type {import('xo').FlatXoConfig} */
 export default [{
 	plugins: {
 		perfectionist,

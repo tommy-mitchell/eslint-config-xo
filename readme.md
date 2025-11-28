@@ -5,7 +5,7 @@ Personal config for [`XO`](https://github.com/xojs/xo). Recommended to be used w
 ## Install
 
 ```sh
-npm install --save-dev @tommy-mitchell/eslint-config-xo@beta xo@npm:@spence-s/flat-xo@latest
+npm install --save-dev @tommy-mitchell/eslint-config-xo xo
 ```
 
 <details>
@@ -13,7 +13,7 @@ npm install --save-dev @tommy-mitchell/eslint-config-xo@beta xo@npm:@spence-s/fl
 <p>
 
 ```sh
-yarn add --dev @tommy-mitchell/eslint-config-xo@beta xo@npm:@spence-s/flat-xo@latest
+yarn add --dev @tommy-mitchell/eslint-config-xo xo
 ```
 
 </p>
@@ -24,11 +24,11 @@ yarn add --dev @tommy-mitchell/eslint-config-xo@beta xo@npm:@spence-s/flat-xo@la
 <p>
 
 ```sh
-npm install --save-dev @tommy-mitchell/eslint-config-xo@beta xo@npm:@spence-s/flat-xo@latest @tommy-mitchell/dprint-config dprint
+npm install --save-dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprint-config dprint
 ```
 
 ```sh
-yarn add --dev @tommy-mitchell/eslint-config-xo@beta xo@npm:@spence-s/flat-xo@latest @tommy-mitchell/dprint-config dprint
+yarn add --dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprint-config dprint
 ```
 
 </p>
@@ -47,6 +47,7 @@ yarn add --dev @tommy-mitchell/eslint-config-xo@beta xo@npm:@spence-s/flat-xo@la
 // xo.config.js
 import * as configs from "@tommy-mitchell/eslint-config-xo";
 
+/** @type {import('xo').FlatXoConfig} */
 export default [
 	...configs.xo,
 	...configs.react, // If using React

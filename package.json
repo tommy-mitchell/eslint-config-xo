@@ -28,31 +28,31 @@
 		"test": "ava"
 	},
 	"dependencies": {
-		"@eslint/eslintrc": "^3.3.0",
-		"@next/eslint-plugin-next": "^15.2.2",
+		"@next/eslint-plugin-next": "^16.0.5",
+		"eslint-plugin-better-tailwindcss": "^3.7.11",
 		"eslint-plugin-jsx-a11y": "^6.10.2",
-		"eslint-plugin-perfectionist": "^4.10.1",
-		"eslint-plugin-react-refresh": "^0.4.19",
-		"eslint-plugin-readable-tailwind": "^1.9.1",
+		"eslint-plugin-perfectionist": "^4.15.1",
+		"eslint-plugin-react-refresh": "^0.4.24",
 		"eslint-plugin-simple-import-sort": "^12.1.1",
-		"eslint-plugin-sort-react-dependency-arrays": "^1.0.0",
-		"eslint-plugin-tailwindcss": "^3.18.0"
+		"eslint-plugin-sort-react-dependency-arrays": "^1.0.0"
 	},
 	"devDependencies": {
-		"@stylistic/eslint-plugin": "^3.0.1",
-		"@tommy-mitchell/dprint-config": "^0.5.0",
-		"ava": "^6.2.0",
+		"@stylistic/eslint-plugin": "^5.6.1",
+		"@tommy-mitchell/dprint-config": "0.6.0",
+		"ava": "^6.4.1",
 		"dprint": "0.x",
-		"eslint-plugin-react": "^7.37.4",
-		"execa": "^9.5.2",
+		"eslint-plugin-react": "^7.37.5",
+		"execa": "^9.6.0",
+		"react": "^19.2.0",
+		"tailwindcss": "^4.1.17",
 		"tempy": "^3.1.0",
-		"xo": "npm:@spence-s/flat-xo@0.0.10"
+		"xo": "~1.2.3"
 	},
 	"peerDependencies": {
 		"dprint": "0.x",
 		"react": "19.x",
-		"tailwindcss": "3.x",
-		"xo": "0.x"
+		"tailwindcss": "4.x",
+		"xo": "1.x"
 	},
 	"peerDependenciesMeta": {
 		"dprint": {
@@ -66,7 +66,7 @@
 		}
 	},
 	"engines": {
-		"node": "^18.20 || ^20.10 || >=21"
+		"node": ">=20.17"
 	},
 	"ava": {
 		"timeout": "30s"

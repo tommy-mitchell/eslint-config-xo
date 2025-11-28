@@ -8,6 +8,7 @@ const configs = [
 	jsxA11y.flatConfigs.recommended,
 ];
 
+/** @type {import('xo').FlatXoConfig} */
 export default [{ react: true }, ...configs, {
 	plugins: {
 		"react-refresh": reactRefresh,

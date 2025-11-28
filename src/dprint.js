@@ -28,6 +28,7 @@ const disabledRules = Object.fromEntries(
 		.map(rule => [`@stylistic/${rule}`, "off"]),
 );
 
+/** @type {import('xo').FlatXoConfig} */
 export default [
 	{
 		rules: {

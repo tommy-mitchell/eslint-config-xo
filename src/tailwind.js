@@ -1,23 +1,23 @@
-import eslintPluginReadableTailwind from "eslint-plugin-readable-tailwind";
-import tailwind from "eslint-plugin-tailwindcss";
+import eslintPluginBetterTailwindcss from "eslint-plugin-better-tailwindcss";
 
-export default [...tailwind.configs["flat/recommended"], {
+/** @type {import('xo').FlatXoConfig} */
+export default [{
 	plugins: {
-		"readable-tailwind": eslintPluginReadableTailwind,
+		"better-tailwindcss": eslintPluginBetterTailwindcss,
 	},
 	rules: {
-		"readable-tailwind/multiline": ["warn", {
-			group: "newLine",
+		...eslintPluginBetterTailwindcss.configs.recommended.rules,
+		"better-tailwindcss/enforce-consistent-line-wrapping": ["warn", {
 			indent: "tab",
 			preferSingleLine: true,
 			printWidth: 120,
 		}],
-		"readable-tailwind/no-duplicate-classes": "warn",
-		"readable-tailwind/no-unnecessary-whitespace": "warn",
-		"readable-tailwind/sort-classes": "warn",
-		"tailwindcss/classnames-order": "off",
-		"tailwindcss/no-custom-classname": ["warn", {
-			callees: ["classnames", "clsx", "ctl", "cva", "tv", "tva", "tw", "twMerge", "cn", "cnx"],
-		}],
+		"better-tailwindcss/enforce-shorthand-classes": "warn",
+		"better-tailwindcss/no-deprecated-classes": "warn",
+	},
+	settings: {
+		"better-tailwindcss": {
+			callees: ["clsx", "cn", "cnx", "cva", "cx", "tv", "twJoin", "twMerge"],
+		},
 	},
 }];
