@@ -1,3 +1,8 @@
 {
-    "type": "module"
+    "type": "module",
+    "dependencies": {
+        "react": "19.x",
+        "tailwindcss": "4.x",
+        "tsx": "4.20.6"
+    }
 }
