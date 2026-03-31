@@ -16,6 +16,10 @@ npm install --save-dev @tommy-mitchell/eslint-config-xo xo
 yarn add --dev @tommy-mitchell/eslint-config-xo xo
 ```
 
+```sh
+pnpm add --save-dev @tommy-mitchell/eslint-config-xo xo
+```
+
 </p>
 </details>
 
@@ -29,6 +33,10 @@ npm install --save-dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprin
 
 ```sh
 yarn add --dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprint-config dprint
+```
+
+```sh
+pnpm add --save-dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprint-config dprint
 ```
 
 </p>
@@ -50,9 +58,9 @@ import * as configs from "@tommy-mitchell/eslint-config-xo";
 /** @type {import('xo').FlatXoConfig} */
 export default [
 	...configs.xo,
-	...configs.react, // If using React
+	...configs.react({ version: "19" }), // If using React
 	...configs.next, // If using Next.js
-	...configs.tailwind, // If using Tailwind CSS
+	...configs.tailwind({ config: "src/tailwind.css" }), // If using TailwindCSS
 	...configs.dprint, // If using dprint (must be last to override stylistic rules)
 	// Plus any overrides
 ]
