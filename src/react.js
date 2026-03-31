@@ -1,6 +1,6 @@
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
-import reactRefresh from "eslint-plugin-react-refresh";
+import { reactRefresh } from "eslint-plugin-react-refresh";
 import sortReactDependencyArrays from "eslint-plugin-sort-react-dependency-arrays";
 
 const configs = [
@@ -8,10 +8,10 @@ const configs = [
 	jsxA11y.flatConfigs.recommended,
 ];
 
-/** @type {import('xo').FlatXoConfig} */
-export default [{ react: true }, ...configs, {
+/** @type {(options?: {version?: string}) => import('xo').FlatXoConfig} */
+export default ({ version = "detect" } = {}) => [{ react: true, settings: { react: { version } } }, ...configs, {
 	plugins: {
-		"react-refresh": reactRefresh,
+		"react-refresh": reactRefresh.plugin,
 		"sort-react-dependency-arrays": sortReactDependencyArrays,
 	},
 	rules: {
@@ -43,6 +43,9 @@ export default [{ react: true }, ...configs, {
 				pascalCase: true,
 			},
 		}],
+		...version === "19" && {
+			"react/forward-ref-uses-ref": "off",
+		},
 	},
 }, {
 	files: ["src/constants/**/*.{ts,cts,mts,tsx}", "**/constants.{ts,cts,mts,tsx}"],
@@ -53,11 +56,11 @@ export default [{ react: true }, ...configs, {
 	files: "**/*.{ts,cts,mts,tsx}",
 	rules: {
 		"perfectionist/sort-interfaces": ["error", {
-			customGroups: { callback: "^on[A-Z].*" },
+			customGroups: [{ elementNamePattern: "^on[A-Z].*", groupName: "callback" }],
 			groups: ["unknown", "callback"],
 		}],
 		"perfectionist/sort-object-types": ["error", {
-			customGroups: { callback: "^on[A-Z].*" },
+			customGroups: [{ elementNamePattern: "^on[A-Z].*", groupName: "callback" }],
 			groups: ["unknown", "callback"],
 		}],
 	},

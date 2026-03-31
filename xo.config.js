@@ -8,6 +8,7 @@ export default [
 	{
 		rules: {
 			"import-x/no-anonymous-default-export": "off",
+			"unicorn/no-anonymous-default-export": "off",
 		},
 	},
 ];

@@ -42,7 +42,7 @@ export default [{
 		"@typescript-eslint/no-confusing-void-expression": ["error", { ignoreArrowShorthand: true }],
 		// https://github.com/xojs/eslint-config-xo-typescript/blob/v2.0.0/index.js#L707
 		"@typescript-eslint/prefer-regexp-exec": "off",
-		"perfectionist/sort-enums": ["error", { forceNumericSort: true }],
+		"perfectionist/sort-enums": "error",
 		"perfectionist/sort-heritage-clauses": "error",
 		"perfectionist/sort-interfaces": "error",
 		"perfectionist/sort-intersection-types": "error",
