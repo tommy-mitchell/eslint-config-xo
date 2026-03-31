@@ -5,6 +5,7 @@ import test from "ava";
 import { $ } from "execa";
 import { temporaryDirectory } from "tempy";
 
+// TODO: use in-memory fs, lint with Xo class
 const fixtureDirectory = new URL("fixtures", import.meta.url);
 const fixtureFiles = await fs.readdir(fixtureDirectory, { recursive: true });
 const fixtures = fixtureFiles.filter(file => file.split(".")[0].endsWith("fixture"));
@@ -21,14 +22,14 @@ for (const fixture of fixtures) {
 		const $$ = $({
 			all: true,
 			cwd: path.dirname(tempFixture),
-			env: { NODE_NO_WARNINGS: 1 },
+			env: { NO_COLOR: 1 },
 			localDir: process.cwd(),
 			reject: false,
 		});
 
 		const { all: lintErrors, exitCode } = await $$`xo --fix ${tempFixture}`;
 		const fixed = await fs.readFile(tempFixture, "utf8");
-		const errorCount = Number(lintErrors.match(/\d+(?= errors$)/m)?.at(0));
+		const errorCount = Number(lintErrors.match(/\d+(?= errors$)/mv)?.at(0));
 
 		t.snapshot({ errorCount, exitCode, fixed, lintErrors });
 	});
