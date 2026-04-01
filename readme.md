@@ -60,6 +60,7 @@ export default [
 	...configs.xo,
 	...configs.react({ version: "19" }), // If using React
 	...configs.next, // If using Next.js
+	...configs.tanstack, // If using TanStack Start
 	...configs.tailwind({ config: "src/tailwind.css" }), // If using TailwindCSS
 	...configs.dprint, // If using dprint (must be last to override stylistic rules)
 	// Plus any overrides

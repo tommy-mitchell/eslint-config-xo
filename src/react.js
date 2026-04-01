@@ -19,6 +19,7 @@ export default [jsxA11y.flatConfigs.recommended, {
 	rules: {
 		"perfectionist/sort-jsx-props": ["error", {
 			customGroups: [
+				// TODO: move groups to a constant for reuse
 				{ elementNamePattern: "^on[A-Z].*", groupName: "callback" },
 				{ elementNamePattern: "^(children|dangerouslySetInnerHTML|key|ref)$", groupName: "reserved" },
 			],
