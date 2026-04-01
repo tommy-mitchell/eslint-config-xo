@@ -28,6 +28,7 @@
 		"test": "ava"
 	},
 	"dependencies": {
+		"@eslint-react/eslint-plugin": "^3.0.0",
 		"@next/eslint-plugin-next": "^16.0.5",
 		"eslint-plugin-better-tailwindcss": "^4.3.2",
 		"eslint-plugin-jsx-a11y": "^6.10.2",
@@ -41,11 +42,11 @@
 		"@tommy-mitchell/dprint-config": "0.6.0",
 		"ava": "^7.0.0",
 		"dprint": "0.x",
-		"eslint-plugin-react": "^7.37.5",
 		"execa": "^9.6.0",
 		"react": "^19.2.0",
 		"tailwindcss": "^4.1.17",
 		"tempy": "^3.1.0",
+		"typescript": "6.0.2",
 		"xo": "~2.0.2"
 	},
 	"peerDependencies": {

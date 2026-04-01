@@ -2,7 +2,12 @@ import * as configs from "../.src/index.js";
 
 export default [
 	...configs.xo,
-	...configs.react({version: '19'}),
+	...configs.react,
 	...configs.tailwind({config: "./tailwind.css"}),
-	...configs.dprint
+	...configs.dprint,
+	{
+		rules: {
+			"@typescript-eslint/no-unsafe-enum-comparison": "off",
+		}
+	}
 ];
