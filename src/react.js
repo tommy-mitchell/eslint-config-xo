@@ -3,13 +3,14 @@ import jsxA11y from "eslint-plugin-jsx-a11y";
 import { reactRefresh } from "eslint-plugin-react-refresh";
 import sortReactDependencyArrays from "eslint-plugin-sort-react-dependency-arrays";
 
-const configs = [
-	eslintReact.configs["strict-type-checked"],
-	jsxA11y.flatConfigs.recommended,
-];
-
 /** @type {import('xo').FlatXoConfig} */
-export default [...configs, {
+export default [jsxA11y.flatConfigs.recommended, {
+	...eslintReact.configs.strict,
+	files: "**/*.{jsx}",
+}, {
+	...eslintReact.configs["strict-type-checked"],
+	files: "**/*.{tsx}",
+}, {
 	plugins: {
 		"react-refresh": reactRefresh.plugin,
 		"sort-react-dependency-arrays": sortReactDependencyArrays,

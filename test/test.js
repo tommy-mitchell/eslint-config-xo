@@ -8,9 +8,9 @@ import { temporaryDirectory } from "tempy";
 // TODO: fix
 const ignoredFixtures = new Set([
 	"package-json/package.json",
-	"react/fixture.jsx",
-	"tailwind/fixture.jsx",
-	"tailwind/fixture.tsx",
+	// "react/fixture.jsx",
+	// "tailwind/fixture.jsx",
+	// "tailwind/fixture.tsx",
 ]);
 
 // TODO: use in-memory fs, lint with Xo class
