@@ -16,6 +16,7 @@ export default ({ config }) => [{
 	settings: {
 		"better-tailwindcss": {
 			callees: ["clsx", "cn", "cnx", "cva", "cx", "tv", "twJoin", "twMerge"],
+			detectComponentClasses: true,
 			entryPoint: config, // v4 config path
 		},
 	},
