@@ -1,6 +1,6 @@
 {
 	"name": "@tommy-mitchell/eslint-config-xo",
-	"version": "2.0.0-beta.4",
+	"version": "2.0.0-beta.5",
 	"description": "Personal config for XO.",
 	"keywords": [
 		"nodejs",
