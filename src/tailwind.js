@@ -1,7 +1,7 @@
 import eslintPluginBetterTailwindcss from "eslint-plugin-better-tailwindcss";
 
-/** @type {import('xo').FlatXoConfig} */
-export default [{
+/** @type {({config}: {config: string}) => import('xo').FlatXoConfig} */
+export default ({ config }) => [{
 	plugins: {
 		"better-tailwindcss": eslintPluginBetterTailwindcss,
 	},
@@ -12,12 +12,12 @@ export default [{
 			preferSingleLine: true,
 			printWidth: 120,
 		}],
-		"better-tailwindcss/enforce-shorthand-classes": "warn",
-		"better-tailwindcss/no-deprecated-classes": "warn",
 	},
 	settings: {
 		"better-tailwindcss": {
 			callees: ["clsx", "cn", "cnx", "cva", "cx", "tv", "twJoin", "twMerge"],
+			detectComponentClasses: true,
+			entryPoint: config, // v4 config path
 		},
 	},
 }];

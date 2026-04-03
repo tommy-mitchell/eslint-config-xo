@@ -3,6 +3,7 @@
     "dependencies": {
         "react": "19.x",
         "tailwindcss": "4.x",
-        "tsx": "4.20.6"
+        "tsx": "4.20.6",
+        "typescript": "6.0"
     }
 }

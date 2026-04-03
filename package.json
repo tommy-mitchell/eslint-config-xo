@@ -1,6 +1,6 @@
 {
 	"name": "@tommy-mitchell/eslint-config-xo",
-	"version": "1.0.0",
+	"version": "2.0.0-beta.7",
 	"description": "Personal config for XO.",
 	"keywords": [
 		"nodejs",
@@ -28,31 +28,33 @@
 		"test": "ava"
 	},
 	"dependencies": {
+		"@eslint-react/eslint-plugin": "^3.0.0",
 		"@next/eslint-plugin-next": "^16.0.5",
-		"eslint-plugin-better-tailwindcss": "^3.7.11",
+		"@tanstack/eslint-plugin-router": "^1.161.6",
+		"eslint-plugin-better-tailwindcss": "^4.3.2",
 		"eslint-plugin-jsx-a11y": "^6.10.2",
-		"eslint-plugin-perfectionist": "^4.15.1",
-		"eslint-plugin-react-refresh": "^0.4.24",
+		"eslint-plugin-perfectionist": "^5.7.0",
+		"eslint-plugin-react-refresh": "^0.5.2",
 		"eslint-plugin-simple-import-sort": "^12.1.1",
 		"eslint-plugin-sort-react-dependency-arrays": "^1.0.0"
 	},
 	"devDependencies": {
 		"@stylistic/eslint-plugin": "^5.6.1",
 		"@tommy-mitchell/dprint-config": "0.6.0",
-		"ava": "^6.4.1",
+		"ava": "^7.0.0",
 		"dprint": "0.x",
-		"eslint-plugin-react": "^7.37.5",
 		"execa": "^9.6.0",
 		"react": "^19.2.0",
 		"tailwindcss": "^4.1.17",
 		"tempy": "^3.1.0",
-		"xo": "~1.2.3"
+		"typescript": "6.0.2",
+		"xo": "~2.0.2"
 	},
 	"peerDependencies": {
 		"dprint": "0.x",
 		"react": "19.x",
 		"tailwindcss": "4.x",
-		"xo": "1.x"
+		"xo": "2.x"
 	},
 	"peerDependenciesMeta": {
 		"dprint": {
@@ -66,7 +68,7 @@
 		}
 	},
 	"engines": {
-		"node": ">=20.17"
+		"node": ">=22"
 	},
 	"ava": {
 		"timeout": "30s"
