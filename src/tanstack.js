@@ -17,6 +17,7 @@ export default [
 		],
 	}),
 	{
+		files: "**/**.{ts,cts,mts,tsx}",
 		rules: {
 			"@typescript-eslint/only-throw-error": ["error", {
 				allow: [{
