@@ -16,4 +16,22 @@ export default [
 			"createLazyRoute",
 		],
 	}),
+	{
+		rules: {
+			"@typescript-eslint/only-throw-error": ["error", {
+				allow: [{
+					from: "package",
+					name: "Redirect",
+					package: "@tanstack/router-core",
+				}, {
+					from: "package",
+					name: "NotFoundError",
+					package: "@tanstack/router-core",
+				}],
+				// https://github.com/xojs/eslint-config-xo/blob/55b6ae18731cc30599057de401fd711ff9f5cb8c/source/typescript-rules.js#L476-L483
+				allowThrowingAny: false,
+				allowThrowingUnknown: true,
+			}],
+		},
+	},
 ];
