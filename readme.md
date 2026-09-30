@@ -67,6 +67,20 @@ export default [
 ];
 ```
 
+### TailwindCSS
+
+Add the following to your `settings.json` to prevent duplicate lints:
+
+```jsonc
+"tailwindCSS.lint.suggestCanonicalClasses": "ignore",
+```
+
+If using TailwindCSS v3:
+
+```js
+configs.tailwind({ config: "tailwind.config.ts", version: "3" }),
+```
+
 ### VS Code
 
 Add the following to your `settings.json`:
@@ -81,7 +95,7 @@ Add the following to your `settings.json`:
 If formatting with `dprint`:
 
 ```jsonc
-"[javascript][javascriptreact][typescript][typescriptreact]": {
+"[javascript][javascriptreact][typescript][typescriptreact][json][jsonc][yaml][markdown]": {
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "dprint.dprint",
 	"editor.codeActionsOnSave": {
