@@ -40,6 +40,8 @@
 	"devDependencies": {
 		"@stylistic/eslint-plugin": "^5.10.0",
 		"@tommy-mitchell/dprint-config": "^0.8.0",
+		"@tommy-mitchell/tsconfig": "^4.0.0",
+		"@types/node": "^22.20.4",
 		"ava": "^8.0.1",
 		"dprint": "0.x",
 		"react": "^19.3.0",
@@ -68,6 +70,9 @@
 		"node": ">=22"
 	},
 	"ava": {
+		"extensions": [
+			"ts"
+		],
 		"timeout": "30s"
 	}
 }
