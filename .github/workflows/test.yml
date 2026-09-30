@@ -18,8 +18,5 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
-      - run: corepack enable
-      - run: corepack prepare pnpm@latest
-      - run: pnpm approve-builds dprint unrs-resolver
-      - run: pnpm install
-      - run: pnpm test
+      - run: npm install
+      - run: npm test
