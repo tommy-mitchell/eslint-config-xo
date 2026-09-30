@@ -70,4 +70,11 @@ export default [{
 	rules: {
 		"import-x/no-anonymous-default-export": "off",
 	},
+}, {
+	files: "package.json",
+	rules: {
+		"package-json/dependency-version-range": ["warn", {
+			exceptions: ["typescript"],
+		}],
+	},
 }];
