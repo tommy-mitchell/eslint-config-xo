@@ -58,7 +58,7 @@ import * as configs from "@tommy-mitchell/eslint-config-xo";
 /** @type {import('xo').FlatXoConfig} */
 export default [
 	...configs.xo,
-	...configs.react({ version: "19" }), // If using React
+	...configs.react, // If using React
 	...configs.next, // If using Next.js
 	...configs.tanstack, // If using TanStack Start
 	...configs.tailwind({ config: "src/tailwind.css" }), // If using TailwindCSS

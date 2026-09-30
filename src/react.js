@@ -1,5 +1,4 @@
-import eslintReact from "@eslint-react/eslint-plugin";
-import jsxA11y from "eslint-plugin-jsx-a11y";
+import eslintConfigXoReact from "eslint-config-xo-react";
 import { reactRefresh } from "eslint-plugin-react-refresh";
 
 const customGroups = [
@@ -16,25 +15,26 @@ const reactDependencyHooks = [
 	"useMemo",
 ];
 
-// raw useX()
-const reactHookCallees = reactDependencyHooks.map(hook => `[callee.name="${hook}"]`).join(", ");
+// useX()
+const reactHookCallees = reactDependencyHooks.map(hook => ([
+	"[callee.type=\"Identifier\"]",
+	`[callee.name="${hook}"]`,
+].join(""))).join(", ");
+
 // React.useX()
-const reactHookMemberCallees = reactDependencyHooks.map(hook =>
-	`[callee.type="MemberExpression"][callee.object.type="Identifier"][callee.object.name="React"][callee.property.type="Identifier"][callee.property.name="${hook}"]`
-).join(", ");
+const reactHookMemberCallees = reactDependencyHooks.map(hook => ([
+	"[callee.type=\"MemberExpression\"]",
+	"[callee.object.type=\"Identifier\"]",
+	"[callee.object.name=\"React\"]",
+	"[callee.property.type=\"Identifier\"]",
+	`[callee.property.name="${hook}"]`,
+].join(""))).join(", ");
 
 /** @type {import('xo').FlatXoConfig} */
-export default [jsxA11y.flatConfigs.recommended, {
-	...eslintReact.configs.strict,
-	files: "**/*.{jsx}",
-}, {
-	...eslintReact.configs["strict-type-checked"],
-	files: "**/*.{tsx}",
-}, {
+export default [...eslintConfigXoReact(), {
 	plugins: {
 		"react-refresh": reactRefresh.plugin,
 	},
-	// TODO: boolean-prop-naming
 	rules: {
 		"perfectionist/sort-arrays": ["error", {
 			useConfigurationIf: {
@@ -65,11 +65,6 @@ export default [jsxA11y.flatConfigs.recommended, {
 				pascalCase: true,
 			},
 		}],
-	},
-}, {
-	files: ["src/constants/**/*.{ts,cts,mts,tsx}", "**/constants.{ts,cts,mts,tsx}"],
-	rules: {
-		"@typescript-eslint/naming-convention": "off",
 	},
 }, {
 	files: "**/*.{ts,cts,mts,tsx}",

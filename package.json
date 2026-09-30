@@ -28,11 +28,9 @@
 		"xo"
 	],
 	"dependencies": {
-		"@eslint-react/eslint-plugin": "^3.0.0",
 		"@next/eslint-plugin-next": "^16.3.7",
 		"@tanstack/eslint-plugin-router": "^1.162.0",
 		"eslint-plugin-better-tailwindcss": "^4.7.0",
-		"eslint-plugin-jsx-a11y": "^6.10.2",
 		"eslint-plugin-perfectionist": "^5.12.1",
 		"eslint-plugin-react-refresh": "^0.5.7",
 		"eslint-plugin-simple-import-sort": "^14.0.0"
@@ -44,6 +42,7 @@
 		"@types/node": "^22.20.4",
 		"ava": "^8.0.1",
 		"dprint": "0.x",
+		"eslint-config-xo-react": "^0.32.0",
 		"react": "^19.3.0",
 		"tailwindcss": "^4.3.3",
 		"typescript": "~6.0.3",
