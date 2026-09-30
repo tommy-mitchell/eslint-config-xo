@@ -12,8 +12,11 @@ export default [{
 		"capitalized-comments": "off",
 		"import-x/extensions": "off",
 		"import-x/order": "off",
+		"jsdoc/require-asterisk-prefix": "off",
 		// https://github.com/xojs/eslint-config-xo/blob/v0.44.0/index.js#L186
 		"no-warning-comments": ["warn", { decoration: ["/", "*"] }],
+		// TODO: submit PR upstream
+		"node-test/no-import-test-files": "off",
 		"object-shorthand": "off",
 		"perfectionist/sort-array-includes": "error",
 		"perfectionist/sort-maps": "error",
