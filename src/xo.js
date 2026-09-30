@@ -28,6 +28,7 @@ export default [{
 		}],
 		"unicorn/prefer-regexp-test": "off",
 		"unicorn/prevent-abbreviations": "off",
+		"unicorn/single-line-block-comment-style": ["error", "single-line"],
 	},
 	settings: {
 		perfectionist: {

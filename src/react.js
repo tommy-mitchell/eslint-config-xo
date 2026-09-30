@@ -1,7 +1,22 @@
 import eslintReact from "@eslint-react/eslint-plugin";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import { reactRefresh } from "eslint-plugin-react-refresh";
-import sortReactDependencyArrays from "eslint-plugin-sort-react-dependency-arrays";
+
+const customGroups = [
+	{ elementNamePattern: "^on[A-Z].*", groupName: "callback" },
+	{ elementNamePattern: "^(children|dangerouslySetInnerHTML|key|ref)$", groupName: "reserved" },
+];
+
+const reactDependencyHooks = [
+	"useCallback",
+	"useEffect",
+	"useImperativeHandle",
+	"useInsertionEffect",
+	"useLayoutEffect",
+	"useMemo",
+];
+
+const reactHookCallees = reactDependencyHooks.map(hook => `[callee.name="${hook}"]`).join(", ");
 
 /** @type {import('xo').FlatXoConfig} */
 export default [jsxA11y.flatConfigs.recommended, {
@@ -13,16 +28,16 @@ export default [jsxA11y.flatConfigs.recommended, {
 }, {
 	plugins: {
 		"react-refresh": reactRefresh.plugin,
-		"sort-react-dependency-arrays": sortReactDependencyArrays,
 	},
 	// TODO: boolean-prop-naming
 	rules: {
+		"perfectionist/sort-arrays": ["error", {
+			useConfigurationIf: {
+				matchesAstSelector: `CallExpression:is(${reactHookCallees}) > ArrayExpression`,
+			},
+		}],
 		"perfectionist/sort-jsx-props": ["error", {
-			customGroups: [
-				// TODO: move groups to a constant for reuse
-				{ elementNamePattern: "^on[A-Z].*", groupName: "callback" },
-				{ elementNamePattern: "^(children|dangerouslySetInnerHTML|key|ref)$", groupName: "reserved" },
-			],
+			customGroups,
 			groups: ["reserved", "shorthand-prop", "unknown", "callback"],
 		}],
 		"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
@@ -38,7 +53,6 @@ export default [jsxA11y.flatConfigs.recommended, {
 				String.raw`^.+\.s?css$`,
 			]],
 		}],
-		"sort-react-dependency-arrays/sort": "error",
 		"unicorn/filename-case": ["error", {
 			cases: {
 				camelCase: true,
@@ -56,11 +70,11 @@ export default [jsxA11y.flatConfigs.recommended, {
 	files: "**/*.{ts,cts,mts,tsx}",
 	rules: {
 		"perfectionist/sort-interfaces": ["error", {
-			customGroups: [{ elementNamePattern: "^on[A-Z].*", groupName: "callback" }],
+			customGroups,
 			groups: ["unknown", "callback"],
 		}],
 		"perfectionist/sort-object-types": ["error", {
-			customGroups: [{ elementNamePattern: "^on[A-Z].*", groupName: "callback" }],
+			customGroups,
 			groups: ["unknown", "callback"],
 		}],
 	},
