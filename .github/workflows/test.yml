@@ -4,6 +4,7 @@ on:
     branches:
       - main
   pull_request:
+
 jobs:
   test:
     name: Node.js ${{ matrix.node-version }}
@@ -11,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [22, 24]
+        node-version: [22.20, 24.12, 26]
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6

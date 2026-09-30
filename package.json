@@ -12,7 +12,7 @@
 	},
 	"sideEffects": false,
 	"engines": {
-		"node": ">=22"
+		"node": "^22.20 || ^24.12 || >=26"
 	},
 	"scripts": {
 		"lint": "xo",
