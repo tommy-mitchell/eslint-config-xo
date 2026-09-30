@@ -1,5 +1,5 @@
 {
-	"include": ["fixture.jsx", "fixture.tsx"],
+	"include": ["*.jsx", "*.tsx"],
 	// @tsconfig/vite-react
 	"compilerOptions": {
 		"target": "es2023",

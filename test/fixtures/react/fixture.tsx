@@ -65,10 +65,8 @@ function Board({ xIsNext, squares, onPlay }: BoardProps) {
   );
 }
 
-const DEFAULT_SQUARES = Array.from({length: 9}, () => "");
-
 export default function Game() {
-  const [history, setHistory] = useState([DEFAULT_SQUARES]);
+  const [history, setHistory] = useState([Array.from({length: 9}, () => "")]);
   const [currentMove, setCurrentMove] = useState(0);
   const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove];

@@ -54,11 +54,9 @@ type TypewriterProps = Readonly<{
 	speed?: number;
 }>;
 
-const DEFAULT_DELAY = secondsToMs(3);
-
 export default function Typewriter({
 	className,
-	delay = DEFAULT_DELAY,
+	delay = secondsToMs(3),
 	label,
 	loop = true,
 	sequence,
