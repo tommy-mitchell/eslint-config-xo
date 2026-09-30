@@ -1,7 +1,5 @@
 import fs from "node:fs";
 import path from "node:path";
-import util from "node:util";
-import formatterPretty from "eslint-formatter-pretty"; // eslint-disable-line import-x/no-extraneous-dependencies, n/no-extraneous-import
 import type { Xo } from "xo";
 
 type XoLintResult = Awaited<ReturnType<typeof Xo.lintText>>;
@@ -9,8 +7,10 @@ type XoLintResult = Awaited<ReturnType<typeof Xo.lintText>>;
 export const getFixtures = () => {
 	const fixtureDirectory = new URL("fixtures", import.meta.url);
 	const fixtureFiles = fs.readdirSync(fixtureDirectory, { encoding: "utf8", recursive: true });
-	const fixtures = fixtureFiles
-		.filter(file => /fixture\.\S+$/mv.test(file) || file.endsWith("package-json/package.json"));
+	const fixtures = fixtureFiles.filter(file =>
+		(/fixture\.\S+$/mv.test(file) || file.endsWith("package-json/package.json"))
+		&& !file.includes(".fixed.")
+	);
 
 	return fixtures.map(fixture => {
 		const extension = path.extname(fixture).slice(1);
@@ -24,33 +24,35 @@ export const getFixtures = () => {
 	});
 };
 
-export const formatResults = async (lints: XoLintResult, { cwd }: { cwd: string; }) => {
+type Message = XoLintResult["results"][0]["messages"][0];
+
+// https://github.com/sindresorhus/eslint-formatter-pretty/blob/a09747424eccbcd170d109ef5b5c8b4b00bece68/index.js#L29-L45
+const sortMessages = (messages: Message[]) =>
+	messages.toSorted((a, b) => {
+		if (a.fatal === b.fatal && a.severity === b.severity) {
+			const diff = a.line === b.line ? "column" : "line";
+			return a[diff] < b[diff] ? -1 : 1;
+		}
+
+		const isFatalOrErrorA = a.fatal ?? (a.severity === 2);
+		const isFatalOrErrorB = b.fatal ?? (b.severity === 2);
+
+		return isFatalOrErrorA && !isFatalOrErrorB ? 1 : -1;
+	});
+
+const severitySymbol = (message: Message) => message.fatal ?? (message.severity === 2) ? "✖" : "⚠";
+
+export const formatResults = async (lints: XoLintResult) => {
 	const errorCount = lints.errorCount - lints.fixableErrorCount;
 	const warningCount = lints.warningCount - lints.fixableWarningCount;
 
-	const result = lints.results[0]!;
-	result.messages = result.messages.filter(message => !message.fix);
+	const unfixedLints = lints.results[0]!.messages.filter(message => !message.fix);
+	const lintErrors = sortMessages(unfixedLints).map(message => {
+		const location = `(${message.line}:${message.column})`;
+		const cleanedMessage = message.message.replaceAll(/\B'(.*?)'\B/gv, "`$1`"); // eslint-disable-line regexp/prefer-named-capture-group
 
-	// @ts-expect-error -- formatter works
-	const formattedErrors = formatterPretty([result], {
-		cwd,
-		...lints,
-		errorCount,
-		fixableErrorCount: 0,
-		fixableWarningCount: 0,
-		warningCount,
+		return `${severitySymbol(message)} ${location}  ${cleanedMessage}  (${message.ruleId})`;
 	});
-
-	// TODO: just recreate formatting, don't run through pretty
-	const lintErrors = formattedErrors
-		.split("\n")
-		.map(line => util.stripVTControlCharacters(line.trim()))
-		.filter(line => line.startsWith("✖") || line.startsWith("⚠"))
-		.map(line => {
-			line = line.replaceAll(/\s{2,}/gv, "_%_");
-			const [symbol, location, message, rule] = line.split("_%_", 4);
-			return `${symbol} (${location})  ${message}  (${rule})`;
-		});
 
 	return { counts: { errors: errorCount, warnings: warningCount }, lintErrors };
 };
