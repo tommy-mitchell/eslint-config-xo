@@ -18,5 +18,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm test
+      - run: corepack enable
+      - run: corepack prepare pnpm@latest
+      - run: pnpm install
+      - run: pnpm test
