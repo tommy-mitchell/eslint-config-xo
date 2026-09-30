@@ -40,6 +40,7 @@
 		"@tommy-mitchell/dprint-config": "^0.8.0",
 		"@tommy-mitchell/tsconfig": "^4.0.0",
 		"@types/node": "^22.20.4",
+		"@types/react": "^19.3.0",
 		"ava": "^8.0.1",
 		"dprint": "0.x",
 		"eslint-config-xo-react": "^0.32.0",
