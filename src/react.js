@@ -16,7 +16,12 @@ const reactDependencyHooks = [
 	"useMemo",
 ];
 
+// raw useX()
 const reactHookCallees = reactDependencyHooks.map(hook => `[callee.name="${hook}"]`).join(", ");
+// React.useX()
+const reactHookMemberCallees = reactDependencyHooks.map(hook =>
+	`[callee.type="MemberExpression"][callee.object.type="Identifier"][callee.object.name="React"][callee.property.type="Identifier"][callee.property.name="${hook}"]`
+).join(", ");
 
 /** @type {import('xo').FlatXoConfig} */
 export default [jsxA11y.flatConfigs.recommended, {
@@ -33,7 +38,7 @@ export default [jsxA11y.flatConfigs.recommended, {
 	rules: {
 		"perfectionist/sort-arrays": ["error", {
 			useConfigurationIf: {
-				matchesAstSelector: `CallExpression:is(${reactHookCallees}) > ArrayExpression`,
+				matchesAstSelector: `CallExpression:is(${reactHookCallees}, ${reactHookMemberCallees}) > ArrayExpression`,
 			},
 		}],
 		"perfectionist/sort-jsx-props": ["error", {
