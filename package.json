@@ -2,31 +2,31 @@
 	"name": "@tommy-mitchell/eslint-config-xo",
 	"version": "2.0.0-beta.7",
 	"description": "Personal config for XO.",
-	"keywords": [
-		"nodejs",
-		"config",
-		"xo"
-	],
-	"repository": "tommy-mitchell/eslint-config-xo",
 	"license": "MIT",
-	"author": {
-		"name": "Tommy Mitchell",
-		"url": "https://tommymitchell.io"
-	},
-	"sideEffects": false,
+	"repository": "tommy-mitchell/eslint-config-xo",
+	"author": "Tommy Mitchell (https://tommymitchell.io)",
 	"type": "module",
-	"files": [
-		"src"
-	],
 	"exports": {
 		"types": "./src/index.d.ts",
 		"default": "./src/index.js"
+	},
+	"sideEffects": false,
+	"engines": {
+		"node": ">=22"
 	},
 	"scripts": {
 		"lint": "xo",
 		"format": "dprint fmt && xo --fix",
 		"test": "ava"
 	},
+	"files": [
+		"src"
+	],
+	"keywords": [
+		"nodejs",
+		"config",
+		"xo"
+	],
 	"dependencies": {
 		"@eslint-react/eslint-plugin": "^3.0.0",
 		"@next/eslint-plugin-next": "^16.3.7",
@@ -65,9 +65,6 @@
 		"tailwindcss": {
 			"optional": true
 		}
-	},
-	"engines": {
-		"node": ">=22"
 	},
 	"ava": {
 		"extensions": [

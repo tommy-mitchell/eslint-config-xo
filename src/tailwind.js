@@ -1,6 +1,7 @@
 import eslintPluginBetterTailwindcss from "eslint-plugin-better-tailwindcss";
 
-/** @type {({config}: {config: string}) => import('xo').FlatXoConfig} */
+// eslint-disable-next-line jsdoc/require-description
+/** @type {(options: {config: string}) => import('xo').FlatXoConfig} */
 export default ({ config }) => [{
 	plugins: {
 		"better-tailwindcss": eslintPluginBetterTailwindcss,

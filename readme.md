@@ -45,9 +45,9 @@ pnpm add --save-dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprint-c
 ### Peer Dependencies
 
 - [xo](https://github.com/xojs/xo) - JavaScript/TypeScript linter (ESLint wrapper) with great defaults.
-- [dprint](https://github.com/dprint/dprint) (*Optional*) - Pluggable and configurable code formatting platform written in Rust.
-- [react](https://react.dev) (*Optional*) - The library for web and native user interfaces.
-- [tailwindcss](https://tailwindcss.com) (*Optional*) - A utility-first CSS framework for rapid UI development.
+- [dprint](https://github.com/dprint/dprint) (_Optional_) - Pluggable and configurable code formatting platform written in Rust.
+- [react](https://react.dev) (_Optional_) - The library for web and native user interfaces.
+- [tailwindcss](https://tailwindcss.com) (_Optional_) - A utility-first CSS framework for rapid UI development.
 
 ## Usage (Flat Config)
 
@@ -64,7 +64,7 @@ export default [
 	...configs.tailwind({ config: "src/tailwind.css" }), // If using TailwindCSS
 	...configs.dprint, // If using dprint (must be last to override stylistic rules)
 	// Plus any overrides
-]
+];
 ```
 
 ### VS Code

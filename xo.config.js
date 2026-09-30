@@ -13,4 +13,12 @@ export default [
 			"unicorn/no-anonymous-default-export": "off",
 		},
 	},
+	{
+		files: ["package.json"],
+		rules: {
+			"package-json/dependency-version-range": ["error", {
+				exceptions: ["typescript", "xo"],
+			}],
+		},
+	},
 ];

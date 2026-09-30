@@ -12,7 +12,6 @@ const ignoredFixtures = new Set([
 // fixtures/{type} must contain an xo.config.js
 // tests read fixture and runs through XO, then outputs fixes to a temp file
 
-// TODO: setup concurrency
 for (const { cwd, fixture, fixturePath, outputPath } of getFixtures()) {
 	// eslint-disable-next-line ava/no-invalid-modifier-chain
 	test.skipIf(ignoredFixtures.has(fixture)).serial(`lints and fixes ${fixture}`, async t => {
