@@ -42,16 +42,31 @@ export default [{
 }, {
 	files: "**/*.{ts,cts,mts,tsx}",
 	rules: {
+		"@typescript-eslint/consistent-type-imports": ["error", {
+			disallowTypeAnnotations: false,
+			fixStyle: "inline-type-imports",
+		}],
 		// https://github.com/xojs/eslint-config-xo-typescript/blob/v2.0.0/index.js#L384
-		"@typescript-eslint/no-confusing-void-expression": ["error", { ignoreArrowShorthand: true }],
+		"@typescript-eslint/no-confusing-void-expression": ["error", {
+			ignoreArrowShorthand: true,
+		}],
 		// https://github.com/xojs/eslint-config-xo-typescript/blob/v2.0.0/index.js#L707
 		"@typescript-eslint/prefer-regexp-exec": "off",
+		"@typescript-eslint/strict-boolean-expressions": ["error", {
+			allowNullableBoolean: true,
+			allowNullableObject: true,
+			allowNullableString: true, // diff from xo
+			allowNumber: false,
+			allowString: true, // diff from xo
+		}],
 		"perfectionist/sort-enums": "error",
 		"perfectionist/sort-heritage-clauses": "error",
 		"perfectionist/sort-interfaces": "error",
 		"perfectionist/sort-intersection-types": "error",
 		"perfectionist/sort-object-types": "error",
-		"perfectionist/sort-union-types": ["error", { groups: ["unknown", "keyword", "nullish"] }],
+		"perfectionist/sort-union-types": ["error", {
+			groups: ["unknown", "keyword", "nullish"],
+		}],
 	},
 	settings: {
 		n: { typescriptExtensionMap: [[".ts", ".ts"], [".tsx", ".tsx"]] },
