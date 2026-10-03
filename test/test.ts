@@ -3,13 +3,8 @@ import test from "ava";
 import { Xo } from "xo";
 import { formatResults, getFixtures } from "./_util.ts";
 
-const ignoredFixtures = new Set([
-	"package-json/package.json",
-]);
-
 for (const { cwd, fixture, fixturePath, outputPath } of getFixtures()) {
-	// eslint-disable-next-line ava/no-invalid-modifier-chain
-	test.skipIf(ignoredFixtures.has(fixture)).serial(`lints and fixes ${fixture}`, async t => {
+	test.serial(`lints and fixes ${fixture}`, async t => {
 		t.teardown(async () => {
 			await fs.rm(outputPath, { force: true });
 		});
@@ -28,8 +23,8 @@ for (const { cwd, fixture, fixturePath, outputPath } of getFixtures()) {
 		await Xo.outputFixes(lints);
 
 		const fixed = await fs.readFile(outputPath, "utf8");
-		const { counts, lintErrors } = await formatResults(lints);
+		const { counts, errors } = await formatResults(lints);
 
-		t.snapshot({ counts, fixed, lintErrors });
+		t.snapshot({ counts, errors, fixed });
 	});
 }

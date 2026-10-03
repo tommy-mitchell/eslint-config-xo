@@ -79,12 +79,7 @@ export default [{
 		}],
 	},
 }, {
-	files: [
-		"**/xo.config.js",
-		"**/xo.config.ts",
-		"**/eslint.config.js",
-		"**/eslint.config.ts",
-	],
+	files: "**/{xo,eslint}.config.{js,ts}",
 	rules: {
 		"import-x/no-anonymous-default-export": "off",
 	},

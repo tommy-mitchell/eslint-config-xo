@@ -8,17 +8,19 @@ export const getFixtures = () => {
 	const fixtureDirectory = new URL("fixtures", import.meta.url);
 	const fixtureFiles = fs.readdirSync(fixtureDirectory, { encoding: "utf8", recursive: true });
 	const fixtures = fixtureFiles.filter(file =>
-		(/fixture\.\S+$/mv.test(file) || file.endsWith("package-json/package.json"))
+		/fixture\.\S+$/mv.test(file)
 		&& !file.includes(".fixed.")
+		&& !file.endsWith("package-json/package.json")
 	);
 
 	return fixtures.map(fixture => {
 		const extension = path.extname(fixture).slice(1);
 		const [fixtureName] = path.basename(fixture, `.${extension}`).split(".", 1);
+		const isPackageJson = path.dirname(fixture) === "package-json";
 
 		const fixturePath = path.join(fixtureDirectory.pathname, fixture);
 		const cwd = path.dirname(fixturePath);
-		const outputPath = path.join(cwd, `${fixtureName}.fixed.${extension}`);
+		const outputPath = path.join(cwd, isPackageJson ? "package.json" : `${fixtureName}.fixed.${extension}`);
 
 		return { cwd, fixture, fixturePath, outputPath };
 	});
@@ -47,12 +49,14 @@ export const formatResults = async (lints: XoLintResult) => {
 	const warningCount = lints.warningCount - lints.fixableWarningCount;
 
 	const unfixedLints = lints.results[0]!.messages.filter(message => !message.fix);
-	const lintErrors = sortMessages(unfixedLints).map(message => {
+	const errors = sortMessages(unfixedLints).map(message => {
 		const location = `(${message.line}:${message.column})`;
-		const cleanedMessage = message.message.replaceAll(/\B'(.*?)'\B/gv, "`$1`"); // eslint-disable-line regexp/prefer-named-capture-group
+		const cleanedMessage = message.message
+			.replaceAll(/\B'(.*?)'\B/gv, "`$1`") // eslint-disable-line regexp/prefer-named-capture-group
+			.replace(/\.$/mv, "");
 
 		return `${severitySymbol(message)} ${location}  ${cleanedMessage}  (${message.ruleId})`;
 	});
 
-	return { counts: { errors: errorCount, warnings: warningCount }, lintErrors };
+	return { counts: { errors: errorCount, warnings: warningCount }, errors };
 };

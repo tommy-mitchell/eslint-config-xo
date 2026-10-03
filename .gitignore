@@ -4,3 +4,4 @@ yarn.lock
 pnpm-*.yaml
 
 test/fixtures/**/*.fixed.*
+test/fixtures/package-json/package.json
