@@ -1,0 +1,5 @@
+{
+	"extends": "node_modules/@tommy-mitchell/dprint-config/index.jsonc",
+	"includes": ["**/*.{ts,js,md,json,jsonc,yml,yaml}", "*"],
+	"excludes": ["test/fixtures"],
+}

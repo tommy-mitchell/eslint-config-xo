@@ -23,8 +23,8 @@ for (const { cwd, fixture, fixturePath, outputPath } of getFixtures()) {
 		await Xo.outputFixes(lints);
 
 		const fixed = await fs.readFile(outputPath, "utf8");
-		const { counts, errors } = await formatResults(lints);
+		const results = await formatResults(lints);
 
-		t.snapshot({ counts, errors, fixed });
+		t.snapshot({ ...results, fixed });
 	});
 }

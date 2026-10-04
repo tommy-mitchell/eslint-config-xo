@@ -15,7 +15,7 @@ export default [{
 		"jsdoc/require-asterisk-prefix": "off",
 		// https://github.com/xojs/eslint-config-xo/blob/v0.44.0/index.js#L186
 		"no-warning-comments": ["warn", { decoration: ["/", "*"] }],
-		// TODO: submit PR upstream
+		// TODO[eslint-node-test@>=1.0.1]: remove once upstream includes fix
 		"node-test/no-import-test-files": "off",
 		"object-shorthand": "off",
 		"perfectionist/sort-array-includes": "error",

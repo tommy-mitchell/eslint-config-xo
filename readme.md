@@ -45,9 +45,9 @@ pnpm add --save-dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprint-c
 ### Peer Dependencies
 
 - [xo](https://github.com/xojs/xo) - JavaScript/TypeScript linter (ESLint wrapper) with great defaults.
-- [dprint](https://github.com/dprint/dprint) (_Optional_) - Pluggable and configurable code formatting platform written in Rust.
-- [react](https://react.dev) (_Optional_) - The library for web and native user interfaces.
-- [tailwindcss](https://tailwindcss.com) (_Optional_) - A utility-first CSS framework for rapid UI development.
+- [dprint](https://github.com/dprint/dprint) (*Optional*) - Pluggable and configurable code formatting platform written in Rust.
+- [react](https://react.dev) (*Optional*) - The library for web and native user interfaces.
+- [tailwindcss](https://tailwindcss.com) (*Optional*) - A utility-first CSS framework for rapid UI development.
 
 ## Usage (Flat Config)
 
@@ -90,12 +90,13 @@ Add the following to your `settings.json`:
 "xo.format.enable": true,
 "xo.overrideSeverity": "warn",
 "xo.debounce": 100,
+"xo.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "json", "jsonc", "markdown"],
 ```
 
 If formatting with `dprint`:
 
 ```jsonc
-"[javascript][javascriptreact][typescript][typescriptreact][json][jsonc][yaml][markdown]": {
+"[…]": {
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "dprint.dprint",
 	"editor.codeActionsOnSave": {
