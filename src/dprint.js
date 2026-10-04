@@ -5,12 +5,11 @@ const allowedReactRules = new Set([
 	"jsx-newline",
 	"jsx-pascal-case",
 	"jsx-self-closing-comp",
-	"jsx-sort-props",
 ]);
 
 const disabledLegacyRules = Object.fromEntries(
 	Object.entries(stylistic.configs["disable-legacy"].rules)
-		.filter(([rule]) => !allowedReactRules.has(rule.replace("react/", ""))),
+		.filter(([rule]) => !allowedReactRules.has(rule.replace("@stylistic/", ""))),
 );
 
 const allowedRules = new Set([

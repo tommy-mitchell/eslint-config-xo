@@ -1,58 +1,59 @@
 {
 	"name": "@tommy-mitchell/eslint-config-xo",
-	"version": "1.0.0",
+	"version": "2.0.0-beta.11",
 	"description": "Personal config for XO.",
+	"license": "MIT",
+	"repository": "tommy-mitchell/eslint-config-xo",
+	"author": "Tommy Mitchell (https://tommymitchell.io)",
+	"type": "module",
+	"exports": {
+		"types": "./src/index.d.ts",
+		"default": "./src/index.js"
+	},
+	"sideEffects": false,
+	"engines": {
+		"node": "^22.22 || ^24.15 || >=26"
+	},
+	"scripts": {
+		"lint": "xo",
+		"format": "dprint fmt && xo --fix",
+		"test": "ava"
+	},
+	"files": [
+		"src"
+	],
 	"keywords": [
 		"nodejs",
 		"config",
 		"xo"
 	],
-	"repository": "tommy-mitchell/eslint-config-xo",
-	"license": "MIT",
-	"author": {
-		"name": "Tommy Mitchell",
-		"url": "https://tommymitchell.io"
-	},
-	"sideEffects": false,
-	"type": "module",
-	"files": [
-		"src"
-	],
-	"exports": {
-		"types": "./src/index.d.ts",
-		"default": "./src/index.js"
-	},
-	"scripts": {
-		"format": "dprint fmt && xo --fix",
-		"lint": "xo",
-		"test": "ava"
-	},
 	"dependencies": {
-		"@next/eslint-plugin-next": "^16.0.5",
-		"eslint-plugin-better-tailwindcss": "^3.7.11",
-		"eslint-plugin-jsx-a11y": "^6.10.2",
-		"eslint-plugin-perfectionist": "^4.15.1",
-		"eslint-plugin-react-refresh": "^0.4.24",
-		"eslint-plugin-simple-import-sort": "^12.1.1",
-		"eslint-plugin-sort-react-dependency-arrays": "^1.0.0"
+		"@next/eslint-plugin-next": "^16.3.8",
+		"@tanstack/eslint-plugin-router": "^1.162.0",
+		"eslint-config-xo-react": "^0.32.0",
+		"eslint-plugin-better-tailwindcss": "^4.7.0",
+		"eslint-plugin-perfectionist": "^5.12.1",
+		"eslint-plugin-react-refresh": "^0.5.7",
+		"eslint-plugin-simple-import-sort": "^14.0.0"
 	},
 	"devDependencies": {
-		"@stylistic/eslint-plugin": "^5.6.1",
-		"@tommy-mitchell/dprint-config": "0.6.0",
-		"ava": "^6.4.1",
-		"dprint": "0.x",
-		"eslint-plugin-react": "^7.37.5",
-		"execa": "^9.6.0",
-		"react": "^19.2.0",
-		"tailwindcss": "^4.1.17",
-		"tempy": "^3.1.0",
-		"xo": "~1.2.3"
+		"@stylistic/eslint-plugin": "^5.10.0",
+		"@tommy-mitchell/dprint-config": "^0.10.0",
+		"@tommy-mitchell/tsconfig": "^4.0.0",
+		"@types/node": "^22.20",
+		"@types/react": "^19.3.0",
+		"ava": "^8.0.1",
+		"dprint": "^0.60.1",
+		"react": "^19.3.0",
+		"tailwindcss": "^4.3.3",
+		"typescript": "~6.0.3",
+		"xo": "~5.0.1"
 	},
 	"peerDependencies": {
 		"dprint": "0.x",
 		"react": "19.x",
 		"tailwindcss": "4.x",
-		"xo": "1.x"
+		"xo": "5.x"
 	},
 	"peerDependenciesMeta": {
 		"dprint": {
@@ -65,10 +66,10 @@
 			"optional": true
 		}
 	},
-	"engines": {
-		"node": ">=20.17"
-	},
 	"ava": {
+		"extensions": [
+			"ts"
+		],
 		"timeout": "30s"
 	}
 }

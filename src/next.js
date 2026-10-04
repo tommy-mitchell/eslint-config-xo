@@ -1,5 +1,5 @@
 import next from "@next/eslint-plugin-next";
-import reactRefresh from "eslint-plugin-react-refresh";
+import { reactRefresh } from "eslint-plugin-react-refresh";
 
 /** @type {import('xo').FlatXoConfig} */
 export default [

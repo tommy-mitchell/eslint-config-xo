@@ -16,6 +16,10 @@ npm install --save-dev @tommy-mitchell/eslint-config-xo xo
 yarn add --dev @tommy-mitchell/eslint-config-xo xo
 ```
 
+```sh
+pnpm add --save-dev @tommy-mitchell/eslint-config-xo xo
+```
+
 </p>
 </details>
 
@@ -29,6 +33,10 @@ npm install --save-dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprin
 
 ```sh
 yarn add --dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprint-config dprint
+```
+
+```sh
+pnpm add --save-dev @tommy-mitchell/eslint-config-xo xo @tommy-mitchell/dprint-config dprint
 ```
 
 </p>
@@ -52,10 +60,25 @@ export default [
 	...configs.xo,
 	...configs.react, // If using React
 	...configs.next, // If using Next.js
-	...configs.tailwind, // If using Tailwind CSS
+	...configs.tanstack, // If using TanStack Start
+	...configs.tailwind({ config: "src/tailwind.css" }), // If using TailwindCSS
 	...configs.dprint, // If using dprint (must be last to override stylistic rules)
 	// Plus any overrides
-]
+];
+```
+
+### TailwindCSS
+
+Add the following to your `settings.json` to prevent duplicate lints:
+
+```jsonc
+"tailwindCSS.lint.suggestCanonicalClasses": "ignore",
+```
+
+If using TailwindCSS v3:
+
+```js
+configs.tailwind({ config: "tailwind.config.ts", version: "3" }),
 ```
 
 ### VS Code
@@ -67,12 +90,13 @@ Add the following to your `settings.json`:
 "xo.format.enable": true,
 "xo.overrideSeverity": "warn",
 "xo.debounce": 100,
+"xo.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "json", "jsonc", "markdown"],
 ```
 
 If formatting with `dprint`:
 
 ```jsonc
-"[javascript][javascriptreact][typescript][typescriptreact]": {
+"[…]": {
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "dprint.dprint",
 	"editor.codeActionsOnSave": {

@@ -1,3 +1,7 @@
-node_modules
+node_modules/
 package-lock.json
 yarn.lock
+pnpm-*.yaml
+
+test/fixtures/**/*.fixed.*
+test/fixtures/package-json/package.json

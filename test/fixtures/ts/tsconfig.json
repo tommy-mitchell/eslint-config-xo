@@ -1,33 +1,16 @@
 {
-	// From https://github.com/tommy-mitchell/tsconfig
+	// From @tsconfig/node22, @tsconfig/node-ts
 	"compilerOptions": {
-		"module": "node16",
-		"moduleResolution": "node16",
-		"moduleDetection": "force",
-		"target": "ES2022",
-		"lib": [
-			"DOM",
-			"DOM.Iterable",
-			"ES2022"
-		],
-		"resolveJsonModule": false,
-		"jsx": "react-jsx",
-		"declaration": true,
-		"newLine": "lf",
-		"stripInternal": true,
+		"lib": ["es2024", "ESNext.Array", "ESNext.Collection", "ESNext.Iterator"],
+		"module": "nodenext",
+		"target": "es2022",
+		"types": ["node"],
 		"strict": true,
-		"noImplicitReturns": true,
-		"noImplicitOverride": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noFallthroughCasesInSwitch": true,
-		"noUncheckedIndexedAccess": true,
-		"noPropertyAccessFromIndexSignature": true,
-		"noEmitOnError": true,
-		"useDefineForClassFields": true,
-		"forceConsistentCasingInFileNames": true,
-		"noUncheckedSideEffectImports": true,
+		"esModuleInterop": true,
 		"skipLibCheck": true,
-		"useUnknownInCatchVariables": true
+		"moduleResolution": "node16",
+		"rewriteRelativeImportExtensions": true,
+		"erasableSyntaxOnly": true,
+		"verbatimModuleSyntax": true,
 	}
 }

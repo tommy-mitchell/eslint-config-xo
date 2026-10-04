@@ -12,8 +12,11 @@ export default [{
 		"capitalized-comments": "off",
 		"import-x/extensions": "off",
 		"import-x/order": "off",
+		"jsdoc/require-asterisk-prefix": "off",
 		// https://github.com/xojs/eslint-config-xo/blob/v0.44.0/index.js#L186
 		"no-warning-comments": ["warn", { decoration: ["/", "*"] }],
+		// TODO[eslint-node-test@>=1.0.1]: remove once upstream includes fix
+		"node-test/no-import-test-files": "off",
 		"object-shorthand": "off",
 		"perfectionist/sort-array-includes": "error",
 		"perfectionist/sort-maps": "error",
@@ -28,6 +31,7 @@ export default [{
 		}],
 		"unicorn/prefer-regexp-test": "off",
 		"unicorn/prevent-abbreviations": "off",
+		"unicorn/single-line-block-comment-style": ["error", "single-line"],
 	},
 	settings: {
 		perfectionist: {
@@ -38,16 +42,31 @@ export default [{
 }, {
 	files: "**/*.{ts,cts,mts,tsx}",
 	rules: {
+		"@typescript-eslint/consistent-type-imports": ["error", {
+			disallowTypeAnnotations: false,
+			fixStyle: "inline-type-imports",
+		}],
 		// https://github.com/xojs/eslint-config-xo-typescript/blob/v2.0.0/index.js#L384
-		"@typescript-eslint/no-confusing-void-expression": ["error", { ignoreArrowShorthand: true }],
+		"@typescript-eslint/no-confusing-void-expression": ["error", {
+			ignoreArrowShorthand: true,
+		}],
 		// https://github.com/xojs/eslint-config-xo-typescript/blob/v2.0.0/index.js#L707
 		"@typescript-eslint/prefer-regexp-exec": "off",
-		"perfectionist/sort-enums": ["error", { forceNumericSort: true }],
+		"@typescript-eslint/strict-boolean-expressions": ["error", {
+			allowNullableBoolean: true,
+			allowNullableObject: true,
+			allowNullableString: true, // diff from xo
+			allowNumber: false,
+			allowString: true, // diff from xo
+		}],
+		"perfectionist/sort-enums": "error",
 		"perfectionist/sort-heritage-clauses": "error",
 		"perfectionist/sort-interfaces": "error",
 		"perfectionist/sort-intersection-types": "error",
 		"perfectionist/sort-object-types": "error",
-		"perfectionist/sort-union-types": ["error", { groups: ["unknown", "keyword", "nullish"] }],
+		"perfectionist/sort-union-types": ["error", {
+			groups: ["unknown", "keyword", "nullish"],
+		}],
 	},
 	settings: {
 		n: { typescriptExtensionMap: [[".ts", ".ts"], [".tsx", ".tsx"]] },
@@ -60,13 +79,15 @@ export default [{
 		}],
 	},
 }, {
-	files: [
-		"**/xo.config.js",
-		"**/xo.config.ts",
-		"**/eslint.config.js",
-		"**/eslint.config.ts",
-	],
+	files: "**/{xo,eslint}.config.{js,ts}",
 	rules: {
 		"import-x/no-anonymous-default-export": "off",
+	},
+}, {
+	files: "package.json",
+	rules: {
+		"package-json/dependency-version-range": ["warn", {
+			exceptions: ["typescript"],
+		}],
 	},
 }];

@@ -1,28 +1,51 @@
-import jsxA11y from "eslint-plugin-jsx-a11y";
-import react from "eslint-plugin-react";
-import reactRefresh from "eslint-plugin-react-refresh";
-import sortReactDependencyArrays from "eslint-plugin-sort-react-dependency-arrays";
+import eslintConfigXoReact from "eslint-config-xo-react";
+import { reactRefresh } from "eslint-plugin-react-refresh";
 
-const configs = [
-	react.configs.flat["jsx-runtime"],
-	jsxA11y.flatConfigs.recommended,
+const customGroups = [
+	{ elementNamePattern: "^on[A-Z].*", groupName: "callback" },
+	{ elementNamePattern: "^(children|dangerouslySetInnerHTML|key|ref)$", groupName: "reserved" },
 ];
 
+const reactDependencyHooks = [
+	"useCallback",
+	"useEffect",
+	"useImperativeHandle",
+	"useInsertionEffect",
+	"useLayoutEffect",
+	"useMemo",
+];
+
+// useX()
+const reactHookCallees = reactDependencyHooks.map(hook => ([
+	"[callee.type=\"Identifier\"]",
+	`[callee.name="${hook}"]`,
+].join(""))).join(", ");
+
+// React.useX()
+const reactHookMemberCallees = reactDependencyHooks.map(hook => ([
+	"[callee.type=\"MemberExpression\"]",
+	"[callee.object.type=\"Identifier\"]",
+	"[callee.object.name=\"React\"]",
+	"[callee.property.type=\"Identifier\"]",
+	`[callee.property.name="${hook}"]`,
+].join(""))).join(", ");
+
 /** @type {import('xo').FlatXoConfig} */
-export default [{ react: true }, ...configs, {
+export default [...eslintConfigXoReact(), {
 	plugins: {
-		"react-refresh": reactRefresh,
-		"sort-react-dependency-arrays": sortReactDependencyArrays,
+		"react-refresh": reactRefresh.plugin,
 	},
 	rules: {
-		"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
-		"react/jsx-sort-props": ["error", {
-			callbacksLast: true,
-			noSortAlphabetically: false,
-			reservedFirst: true,
-			shorthandFirst: true,
+		"perfectionist/sort-arrays": ["error", {
+			useConfigurationIf: {
+				matchesAstSelector: `CallExpression:is(${reactHookCallees}, ${reactHookMemberCallees}) > ArrayExpression`,
+			},
 		}],
-		"react/no-array-index-key": "warn",
+		"perfectionist/sort-jsx-props": ["error", {
+			customGroups,
+			groups: ["reserved", "shorthand-prop", "unknown", "callback"],
+		}],
+		"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
 		"simple-import-sort/imports": ["error", {
 			groups: [[
 				String.raw`^\u0000`,
@@ -35,7 +58,6 @@ export default [{ react: true }, ...configs, {
 				String.raw`^.+\.s?css$`,
 			]],
 		}],
-		"sort-react-dependency-arrays/sort": "error",
 		"unicorn/filename-case": ["error", {
 			cases: {
 				camelCase: true,
@@ -45,19 +67,14 @@ export default [{ react: true }, ...configs, {
 		}],
 	},
 }, {
-	files: ["src/constants/**/*.{ts,cts,mts,tsx}", "**/constants.{ts,cts,mts,tsx}"],
-	rules: {
-		"@typescript-eslint/naming-convention": "off",
-	},
-}, {
 	files: "**/*.{ts,cts,mts,tsx}",
 	rules: {
 		"perfectionist/sort-interfaces": ["error", {
-			customGroups: { callback: "^on[A-Z].*" },
+			customGroups,
 			groups: ["unknown", "callback"],
 		}],
 		"perfectionist/sort-object-types": ["error", {
-			customGroups: { callback: "^on[A-Z].*" },
+			customGroups,
 			groups: ["unknown", "callback"],
 		}],
 	},
